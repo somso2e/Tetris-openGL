@@ -1,4 +1,7 @@
-#include <shader.hpp>
+#include "shader.hpp"
+Shader::Shader() {
+	//this->ID = glCreateProgram();
+}
 void Shader::Compile(std::string vertexFile, std::string fragmentFile) {
 	this->ID = glCreateProgram();
 

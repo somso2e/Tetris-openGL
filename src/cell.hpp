@@ -1,28 +1,24 @@
+#pragma once
+#ifndef CELL_HPP
+#define CELL_HPP
+
 #include <common.hpp>
 #include "VAO.hpp"
-#include "IBO.hpp"
 #include "texture.hpp"
-enum class Color {
-	Gray,
-	Yellow,
-	Green,
-	Orange,
-	Cyan,
-	Magenta,
-	Pink,
-	Red
-};
+#include <glm/gtc/matrix_transform.hpp>
 
 class Cell {
 private:
-	void initRender();
 	glm::vec4 getColor(Color color);
 public:
 	Shader shader;
 	Texture texture;
 	VAO VAO;
 
-	Cell(Shader& shaderProgram, Texture& texture);
-	void Draw(glm::vec2 position, Color color, glm::vec2 size = glm::vec2(CELL_WIDTH, CELL_HEIGHT));
+	void Init(Shader& shaderProgram, Texture& texture);
+	Cell() {};
+	~Cell();
+	void Render(glm::vec2 position, Color color, glm::vec2 size);
 
 };
+#endif

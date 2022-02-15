@@ -165,7 +165,6 @@
   <ItemGroup>
     <ClCompile Include="src\cell.cpp" />
     <ClCompile Include="src\texture.cpp" />
-    <ClCompile Include="src\sprite.cpp" />
     <ClCompile Include="src\IBO.cpp" />
     <ClCompile Include="src\error.cpp" />
     <ClCompile Include="src\game.cpp" />
@@ -177,15 +176,11 @@
     <ClCompile Include="src\VBO.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\shaders\sprite.vertex" />
-    <None Include="res\shaders\sprite.fragment" />
-    <None Include="res\shaders\texture.fragment" />
-    <None Include="res\shaders\texture.vertex" />
-    <None Include="res\shaders\vertex.shader" />
+    <None Include="res\shaders\EmptyCell.fragment" />
+    <None Include="res\shaders\EmptyCell.vertex" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\cell.hpp" />
-    <ClInclude Include="src\sprite.hpp" />
     <ClInclude Include="src\common.hpp" />
     <ClInclude Include="src\IBO.hpp" />
     <ClInclude Include="src\error.hpp" />
@@ -197,7 +192,6 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\textures\EmptyCell.png" />
-    <Image Include="res\textures\pop_cat.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

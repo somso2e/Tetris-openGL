@@ -1,10 +1,7 @@
 #pragma once
-//#include <gl/glew.h>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 
 #include <iostream>
 #include <fstream>
@@ -13,20 +10,29 @@
 #include <vector>
 #include <array>
 
-#include "error.hpp"
-constexpr auto WINDOW_HEIGHT = 960;
-constexpr auto WINDOW_WIDTH = 480;
+constexpr unsigned int WINDOW_HEIGHT = 960;
+constexpr unsigned int WINDOW_WIDTH = 480;
 
-constexpr auto CELLS_NUM_W = 10;
-constexpr auto CELLS_NUM_H = 20;
+constexpr unsigned int NUM_OF_CELLS_W = 10;
+constexpr unsigned int NUM_OF_CELLS_H = 20;
 
 
-constexpr float CELL_WIDTH = (float)WINDOW_WIDTH / CELLS_NUM_W;
-constexpr float CELL_HEIGHT = (float)WINDOW_HEIGHT / CELLS_NUM_H;
+constexpr float CELL_WIDTH = (float)WINDOW_WIDTH / NUM_OF_CELLS_W;
+constexpr float CELL_HEIGHT = (float)WINDOW_HEIGHT / NUM_OF_CELLS_H;
 
-//typedef  std::array<std::array<Color, CELLS_WIDTH>, CELLS_HEIGHT> TetrisCells;
-//TetrisCells TetrisMap;
+
 struct Vertex {
 	glm::vec2 vertices;
 	glm::vec2 texCoords;
+};
+
+enum class Color {
+	Gray,
+	Yellow,
+	Green,
+	Orange,
+	Cyan,
+	Magenta,
+	Pink,
+	Red
 };

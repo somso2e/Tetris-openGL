@@ -1,7 +1,6 @@
 #include "texture.hpp"
 
-Texture::Texture() :
-	InternalFormat(GL_RGB),ImageFormat(GL_RGB),WrapS(GL_REPEAT),WrapT(GL_REPEAT),FilterMin(GL_LINEAR),FilterMax(GL_LINEAR) {
+Texture::Texture() {
 	glGenTextures(1, &this->ID);
 }
 Texture::~Texture() {
@@ -28,7 +27,7 @@ void Texture::Generate(const char* imageFilePath) {
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
-	glTexImage2D(GL_TEXTURE_2D, 0, this->InternalFormat, widthImg, heightImg, 0, this->InternalFormat, GL_UNSIGNED_BYTE, bytes);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, widthImg, heightImg, 0, GL_RGB, GL_UNSIGNED_BYTE, bytes);
 
 	glGenerateMipmap(GL_TEXTURE_2D);
 
