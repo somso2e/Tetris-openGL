@@ -3,8 +3,6 @@
 
 #include <random>
 #include "cell.hpp"
-#include <chrono>
-#include <thread>
 enum class TetrimoType {
 	I, O, J, L, T, S, Z
 };

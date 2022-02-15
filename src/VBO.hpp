@@ -1,7 +1,7 @@
 #ifndef VBO_CLASS_HPP
 #define VBO_CLASS_HPP
 
-#include<common.hpp>
+#include <common.hpp>
 
 
 class VBO {
