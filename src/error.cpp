@@ -29,9 +29,9 @@ MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei 
 	case GL_DEBUG_SEVERITY_NOTIFICATION: severityEnum = "NOTIFICATION"; break;
 	}
 	std::cerr << "GL CALLBACK: [" << typeEnum << "] Source:" << sourceEnum << " Severity:" << severityEnum << " Message:" << message << std::endl;
-	//if (severity!=GL_DEBUG_SEVERITY_NOTIFICATION) {
-	//	__debugbreak();
-	//}
+	if (severity!=GL_DEBUG_SEVERITY_NOTIFICATION) {
+		__debugbreak();
+	}
 }
 
 

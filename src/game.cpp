@@ -1,129 +1,137 @@
 #include "game.hpp"
 
 Game::Game(GLFWwindow* window) {
-	this->window = window;
 	glfwSetWindowUserPointer(window, this);
-	glfwSetKeyCallback(window, Game::s_key_callback);
+	glfwSetKeyCallback(window, s_key_callback);
 
-	this->shader.Compile("res/shaders/EmptyCell.vertex", "res/shaders/EmptyCell.fragment");
+	Renderer::Init();
 
-	const glm::mat4 projection = glm::ortho(0.0f, static_cast<float> (WINDOW_WIDTH),
-		static_cast<float> (WINDOW_HEIGHT), 0.0f, 0.0f, 1.0f);
-	this->shader.SetMatrix4("projection", projection);
+	EmptyCellTextureID = Renderer::LoadTexture("res/textures/EmptyCell.png");
 
-	//Texture EmptyCellTexture;
-	this->EmptyCellTexture.Generate("res/textures/EmptyCell.png");
-	EmptyCellTexture.texUnit(this->shader, "tex0", 0);
-
-	m_cell.Init(this->shader, this->EmptyCellTexture);
-
-
-	this->ActiveTetrimo = GenerateNewTetrimo();
-
+	ActiveTetromino = GenerateNewTetromino();
 }
 
 Game::~Game() {
-	this->EmptyCellTexture.Delete();
-	this->shader.Delete();
-
+	Renderer::Shutdown();
 }
 
 void Game::Update() {
-	// If previous tetrimo was placed generate a new one
-	if (this->ActiveTetrimo.placed) {
-		this->ActiveTetrimo = GenerateNewTetrimo();
 
-		if (HasCollied(this->ActiveTetrimo)) {
+
+	if (glfwGetTime() >= ts + Delay) {
+		MoveTetromino(Movement::Down);
+		ts += Delay;
+	}
+	//if (glfwGetTime() >= inputTime + 0.1f) {
+	//	ProcessInput();
+	//	inputTime += 0.1f;
+	//}
+
+	ProcessInput();
+
+	//std::cout << CurrentFrame << ' ' << LastFrame << std::endl;
+	// If previous tetromino was placed generate a new one
+	if (ActiveTetromino.placed) {
+		ActiveTetromino = GenerateNewTetromino();
+
+		if (HasCollied(ActiveTetromino)) {
 			// GAME OVER
 			std::cin;
 		}
 	}
-	Game::ProcessInput();
 
-	auto DisplayMap = this->Map;
+
+	auto DisplayMap = Map;
 	for (int j = 0; j < 4; j++) {
 		for (int i = 0; i < 4; i++) {
-			if (this->ActiveTetrimo.shape.at(i).at(j)) {
-				DisplayMap.at(this->ActiveTetrimo.x + i).at(this->ActiveTetrimo.y + j) = this->ActiveTetrimo.color;
+			if (ActiveTetromino.shape.at(i).at(j)) {
+				DisplayMap.at(ActiveTetromino.x + i).at(ActiveTetromino.y + j) = ActiveTetromino.color;
 			}
 		}
 	}
-	std::cout << ActiveTetrimo.x << std::endl;
 
-	for (int j = 0; j < 20; j++) {
-		for (int i = 0; i < 10; i++) {
-			glm::vec2 pos(CELL_WIDTH * i, CELL_HEIGHT * j);;
-			m_cell.Render(pos, DisplayMap.at(i).at(j), glm::vec2(CELL_WIDTH, CELL_HEIGHT));
 
+
+	Renderer::BeginBatch();
+	for (int j = 0; j < NUM_OF_CELLS_H; j++) {
+		for (int i = 0; i < NUM_OF_CELLS_W; i++) {
+			//std::cout << pos[0] << " " << pos[1] << std::endl;
+			Renderer::DrawQuad(
+				glm::vec2((float)i, (float)j),
+				glm::vec2(1.0f, 1.0f),
+				Game::GetColor(DisplayMap.at(i).at(j)),
+				EmptyCellTextureID);
 		}
 	}
+
+	Renderer::EndBatch();
+	Renderer::Flush();
 }
 
 
-Tetrimo Game::GenerateNewTetrimo() {
-	std::default_random_engine generator(time(NULL));
+Tetromino Game::GenerateNewTetromino() {
+	std::default_random_engine generator(static_cast<unsigned int>(time(NULL)));
 	// TODO: check if this is correct????
 	std::uniform_int_distribution<uint32_t> distribution(0, NUM_OF_TETRIMOS - 1);
 	auto seed = distribution(generator);
 
-	Tetrimo generatedTetrimo = tetrimos.at(seed);
-	return generatedTetrimo;
+	Tetromino generatedTetromino = tetrominos.at(seed);
+	return generatedTetromino;
 }
 
 
-void Game::MoveTetrimo(Tetrimo tetrimo, Movement movement) {
-	Tetrimo originalTetrimo = tetrimo;
+void Game::MoveTetromino(Movement movement) {
+	Tetromino originalTetromino = ActiveTetromino;
 	switch (movement) {
-		using enum TetrimoType;
+		using enum TetrominoType;
 
-		break;
 	case Movement::Right:
-		tetrimo.x++;
+		ActiveTetromino.x++;
 		break;
 
 	case Movement::Left:
-		tetrimo.x--;
+		ActiveTetromino.x--;
 		break;
 
 	case Movement::Down:
-		tetrimo.y++;
+		ActiveTetromino.y++;
 		break;
-	case Movement::RotateL:
 	case Movement::RotateR:
+	case Movement::RotateL:
 		if (movement == Movement::RotateR) {
-			tetrimo.rotation = ++tetrimo.rotation % 4;
+			ActiveTetromino.rotation = ++ActiveTetromino.rotation % 4;
 		}
 		else if (movement == Movement::RotateL) {
-			tetrimo.rotation = --tetrimo.rotation % 4;
+			ActiveTetromino.rotation = --ActiveTetromino.rotation % 4;
 
 		}
 
-		switch (tetrimo.type) {
+		switch (ActiveTetromino.type) {
 		case I:
-			switch (tetrimo.rotation) {
+			switch (ActiveTetromino.rotation) {
 			case 0:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{0, 0, 0, 0},
 					{1, 1, 1, 1},
 					{0, 0, 0, 0},
 					{0, 0, 0, 0} } };
 				break;
 			case 1:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{0, 0, 1, 0},
 					{0, 0, 1, 0},
 					{0, 0, 1, 0},
 					{0, 0, 1, 0} } };
 				break;
 			case 2:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{0, 0, 0, 0},
 					{0, 0, 0, 0},
 					{1, 1, 1, 1},
 					{0, 0, 0, 0} } };
 				break;
 			case 3:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{0, 1, 0, 0},
 					{0, 1, 0, 0},
 					{0, 1, 0, 0},
@@ -137,30 +145,30 @@ void Game::MoveTetrimo(Tetrimo tetrimo, Movement movement) {
 			break;
 			/////////////
 		case J:
-			switch (tetrimo.rotation) {
+			switch (ActiveTetromino.rotation) {
 			case 0:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{0, 0, 0, 0},
 					{1, 1, 1, 0},
 					{0, 0, 1, 0},
 					{0, 0, 0, 0}} };
 				break;
 			case 1:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{0, 1, 0, 0},
 					{0, 1, 0, 0},
 					{1, 1, 0, 0},
 					{0, 0, 0, 0} } };
 				break;
 			case 2:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{1, 0, 0, 0},
 					{1, 1, 1, 0},
 					{0, 0, 0, 0},
 					{0, 0, 0, 0} } };
 				break;
 			case 3:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{0, 1, 1, 0},
 					{0, 1, 0, 0},
 					{0, 1, 0, 0},
@@ -170,30 +178,30 @@ void Game::MoveTetrimo(Tetrimo tetrimo, Movement movement) {
 			break;
 			/////////////
 		case L:
-			switch (tetrimo.rotation) {
+			switch (ActiveTetromino.rotation) {
 			case 0:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{0, 0, 0, 0},
 					{0, 0, 1, 0},
 					{1, 1, 1, 0},
 					{0, 0, 0, 0}} };
 				break;
 			case 1:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{1, 0, 0, 0},
 					{1, 0, 0, 0},
 					{1, 1, 0, 0},
 					{0, 0, 0, 0} } };
 				break;
 			case 2:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{1, 1, 1, 0},
 					{1, 0, 0, 0},
 					{0, 0, 0, 0},
 					{0, 0, 0, 0} } };
 				break;
 			case 3:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{0, 1, 1, 0},
 					{0, 0, 1, 0},
 					{0, 0, 1, 0},
@@ -203,30 +211,30 @@ void Game::MoveTetrimo(Tetrimo tetrimo, Movement movement) {
 			break;
 			/////////////
 		case T:
-			switch (tetrimo.rotation) {
+			switch (ActiveTetromino.rotation) {
 			case 0:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{0, 0, 0, 0},
 					{0, 1, 0, 0},
 					{1, 1, 1, 0},
 					{0, 0, 0, 0}} };
 				break;
 			case 1:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{1, 0, 0, 0},
 					{1, 1, 0, 0},
 					{1, 0, 0, 0},
 					{0, 0, 0, 0} } };
 				break;
 			case 2:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{1, 1, 1, 0},
 					{0, 1, 0, 0},
 					{0, 0, 0, 0},
 					{0, 0, 0, 0} } };
 				break;
 			case 3:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{0, 0, 1, 0},
 					{0, 1, 1, 0},
 					{0, 0, 1, 0},
@@ -236,30 +244,30 @@ void Game::MoveTetrimo(Tetrimo tetrimo, Movement movement) {
 			break;
 			/////////////
 		case S:
-			switch (tetrimo.rotation) {
+			switch (ActiveTetromino.rotation) {
 			case 0:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{0, 0, 0, 0},
 					{0, 1, 1, 0},
 					{1, 1, 0, 0},
 					{0, 0, 0, 0}} };
 				break;
 			case 1:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{1, 0, 0, 0},
 					{1, 1, 0, 0},
 					{0, 1, 0, 0},
 					{0, 0, 0, 0} } };
 				break;
 			case 2:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{0, 1, 1, 0},
 					{1, 1, 0, 0},
 					{0, 0, 0, 0},
 					{0, 0, 0, 0} } };
 				break;
 			case 3:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{0, 1, 0, 0},
 					{0, 1, 1, 0},
 					{0, 0, 1, 0},
@@ -269,30 +277,30 @@ void Game::MoveTetrimo(Tetrimo tetrimo, Movement movement) {
 			break;
 			/////////////
 		case Z:
-			switch (tetrimo.rotation) {
+			switch (ActiveTetromino.rotation) {
 			case 0:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{0, 0, 0, 0},
 					{1, 1, 0, 0},
 					{0, 1, 1, 0},
 					{0, 0, 0, 0}} };
 				break;
 			case 1:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{0, 1, 0, 0},
 					{1, 1, 0, 0},
 					{1, 0, 0, 0},
 					{0, 0, 0, 0} } };
 				break;
 			case 2:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{1, 1, 0, 0},
 					{0, 1, 1, 0},
 					{0, 0, 0, 0},
 					{0, 0, 0, 0} } };
 				break;
 			case 3:
-				tetrimo.shape = { {
+				ActiveTetromino.shape = { {
 					{0, 0, 1, 0},
 					{0, 1, 1, 0},
 					{0, 1, 0, 0},
@@ -302,18 +310,24 @@ void Game::MoveTetrimo(Tetrimo tetrimo, Movement movement) {
 			break;
 		}
 	}
-	this->ActiveTetrimo = Game::HasCollied(tetrimo) ? originalTetrimo : tetrimo;
+	if (HasCollied(ActiveTetromino)) {
+		ActiveTetromino = originalTetromino;
+	}
 }
 
-bool Game::HasCollied(Tetrimo tetrimo) {
+
+bool Game::HasCollied(Tetromino tetromino) {
 	for (auto i = 0; i < 4; i++) {
 		for (auto j = 0; j < 4; j++) {
-			if (tetrimo.shape[i][j] == true) {
+			if (tetromino.shape[i][j] == true) {
 				// If x and y coords are out of bound 
-				// or 
-				if ((tetrimo.x + i) >= NUM_OF_CELLS_W || (tetrimo.y + j) >= NUM_OF_CELLS_H
-					|| (tetrimo.x + i) < 0 || (tetrimo.y + j) < 0
-					|| this->Map.at(tetrimo.x + i).at(tetrimo.y + j) != Color::Gray) {
+				// or if the cell in the map is a color other than gray AKA it's occupied 
+				if (
+					(tetromino.x + i) >= NUM_OF_CELLS_W
+					|| (tetromino.y + j) >= NUM_OF_CELLS_H
+					|| (tetromino.x + i) < 0
+					|| (tetromino.y + j) < 0
+					|| Map.at(tetromino.x + i).at(tetromino.y + j) != Color::Gray) {
 					return true;
 				}
 
@@ -325,44 +339,97 @@ bool Game::HasCollied(Tetrimo tetrimo) {
 
 }
 
-
+#define CHECK_KEYS(index) ((Keys[index] == GLFW_PRESS || Keys[index] == GLFW_REPEAT) && !KeysProcessed[index]) 
 void Game::ProcessInput() {
-	Movement input;
-	if (this->Keys[GLFW_KEY_RIGHT]) {
-		Game::MoveTetrimo(this->ActiveTetrimo, Movement::Right);
+
+	if CHECK_KEYS(GLFW_KEY_RIGHT) {
+		MoveTetromino(Movement::Right);
+		KeysProcessed[GLFW_KEY_RIGHT] = true;
 	}
-	else if (this->Keys[GLFW_KEY_LEFT]) {
-		Game::MoveTetrimo(this->ActiveTetrimo, Movement::Left);
+	else if CHECK_KEYS(GLFW_KEY_LEFT) {
+		MoveTetromino(Movement::Left);
+		KeysProcessed[GLFW_KEY_LEFT] = true;
 	}
-	else if (this->Keys[GLFW_KEY_DOWN]) {
-		Game::MoveTetrimo(this->ActiveTetrimo, Movement::Down);
+	else if CHECK_KEYS(GLFW_KEY_DOWN) {
+		MoveTetromino(Movement::Down);
+		KeysProcessed[GLFW_KEY_DOWN] = true;
 	}
-	else if (this->Keys[GLFW_KEY_UP]) {
-		Game::MoveTetrimo(this->ActiveTetrimo, Movement::RotateR);
+	else if CHECK_KEYS(GLFW_KEY_UP) {
+		MoveTetromino(Movement::RotateR);
+		KeysProcessed[GLFW_KEY_UP] = true;
 	}
-	else if (this->Keys[GLFW_KEY_Z]) {
-		Game::MoveTetrimo(this->ActiveTetrimo, Movement::RotateL);
+	else if (KeysPressed[GLFW_KEY_W]) {
+		MoveTetromino(Movement::RotateL);
+	}
+	else if (KeysPressed[GLFW_KEY_S]) {
+		MoveTetromino(Movement::RotateL);
+	}
+	else if (KeysPressed[GLFW_KEY_D]) {
+		MoveTetromino(Movement::RotateL);
+	}
+	else if (KeysPressed[GLFW_KEY_A]) {
+		MoveTetromino(Movement::RotateL);
 	}
 
 }
+
 
 
 void Game::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	Game* game = reinterpret_cast<Game*> (glfwGetWindowUserPointer(window));
 
-	if (key > 0 && key < 350) {
+	if (0 < key && key < 350) {
 		if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 			glfwSetWindowShouldClose(window, true);
+
+		Keys[key] = action;
+
 		if (action == GLFW_PRESS) {
-			Keys[key] = true;
+
+			KeysPressed[key] = true;
+			KeysHeld[key] = false;
+			KeysProcessed[key] = true;
+			std::cout << "press" << std::endl;
 		}
 		else if (action == GLFW_RELEASE) {
-			this->Keys[key] = false;
-
+			KeysPressed[key] = false;
+			KeysProcessed[key] = false;
+			KeysHeld[key] = false;
+			std::cout << "release" << std::endl;
+		}
+		else if (action == GLFW_REPEAT) {
+			KeysProcessed[key] = false;
+			KeysPressed[key] = false;
+			KeysHeld[key] = true;
+			std::cout << "repeat" << std::endl;
 		}
 	}
 }
+
 void Game::s_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	Game* that = static_cast<Game*>(glfwGetWindowUserPointer(window));
 	that->key_callback(window, key, scancode, action, mods);
+}
+
+
+glm::vec4 Game::GetColor(Color color) {
+	using enum  Color;
+	switch (color) {
+	case Gray:
+		return glm::vec4(0.55f, 0.55f, 0.55f, 1.0f);
+	case Yellow:
+		return glm::vec4(1.0f, 1.0f, 0.0f, 1.0f);
+	case Green:
+		return glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
+	case Orange:
+		return glm::vec4(1.0f, 0.6f, 0.0f, 1.0f);
+	case Cyan:
+		return glm::vec4(0.4f, 1.0f, 0.8f, 1.0f);
+	case Magenta:
+		return glm::vec4(1.0f, 0.0f, 1.0f, 1.0f);
+	case Pink:
+		return glm::vec4(1.0f, 0.4f, 0.7f, 1.0f);
+	case Red:
+		return glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
+	}
 }

@@ -22,8 +22,10 @@ constexpr float CELL_HEIGHT = (float)WINDOW_HEIGHT / NUM_OF_CELLS_H;
 
 
 struct Vertex {
-	glm::vec2 vertices;
-	glm::vec2 texCoords;
+	glm::vec2 Position;
+	glm::vec4 Color;
+	glm::vec2 TexCoords;
+	float TexIndex;
 };
 
 enum class Color {

@@ -1,18 +1,16 @@
 #include "shader.hpp"
-Shader::Shader() {
-	//this->ID = glCreateProgram();
-}
-void Shader::Compile(std::string vertexFile, std::string fragmentFile) {
-	this->ID = glCreateProgram();
 
-	std::string vertexCode = getShaderFileContent(vertexFile);
-	std::string fragmentCode = getShaderFileContent(fragmentFile);
+void Shader::Compile(std::string vertexFile, std::string fragmentFile) {
+	ID = glCreateProgram();
+	//glObjectLabel(GL_SHADER, ID, -1, "shader");
+	std::string vertexCode = GetShaderFileContent(vertexFile);
+	std::string fragmentCode = GetShaderFileContent(fragmentFile);
 	unsigned int vertexShader = CompileSourceFile(GL_VERTEX_SHADER, vertexCode.c_str());
 	unsigned int fragmentShader = CompileSourceFile(GL_FRAGMENT_SHADER, fragmentCode.c_str());
-	glAttachShader(this->ID, vertexShader);
-	glAttachShader(this->ID, fragmentShader);
-	glLinkProgram(this->ID);
-	glValidateProgram(this->ID);
+	glAttachShader(ID, vertexShader);
+	glAttachShader(ID, fragmentShader);
+	glLinkProgram(ID);
+	glValidateProgram(ID);
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
 }
@@ -36,22 +34,28 @@ unsigned int Shader::CompileSourceFile(unsigned int type, const char* source) {
 	return ID;
 }
 
-void Shader::SetMatrix4(const char* name,glm::mat4 matrix) {
-	this->Use();
-	glUniformMatrix4fv(glGetUniformLocation(this->ID, name), 1, false, glm::value_ptr(matrix));
+void Shader::SetMatrix4(const char* name, glm::mat4 matrix) {
+	Use();
+	glUniformMatrix4fv(glGetUniformLocation(ID, name), 1, false, glm::value_ptr(matrix));
+}
+
+void Shader::SetUniform1iv(const char* name, GLsizei count, const GLint* value) {
+	Use();
+	auto loc = glGetUniformLocation(ID, name);
+	glUniform1iv(loc, count, value);
 
 }
 
 void Shader::Use() {
-	glUseProgram(this->ID);
+	glUseProgram(ID);
 }
 
 void Shader::Delete() {
-	glDeleteProgram(this->ID);
+	glDeleteProgram(ID);
 }
 
 
-std::string getShaderFileContent(const std::string& filepath) {
+std::string Shader::GetShaderFileContent(const std::string& filepath) {
 	std::ifstream file(filepath);
 	if (!file.good()) {
 		std::cout << "[ERROR](Shader) Shader File " << filepath << " does not exist." << std::endl;

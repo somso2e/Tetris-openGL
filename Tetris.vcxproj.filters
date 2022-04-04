@@ -27,31 +27,19 @@
     <ClCompile Include="src\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\IBO.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\VBO.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\VAO.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\stb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\texture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\cell.cpp">
+    <ClCompile Include="src\renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\shaders\EmptyCell.fragment" />
-    <None Include="res\shaders\EmptyCell.vertex" />
+    <None Include="res\shaders\fragment.glsl" />
+    <None Include="res\shaders\vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\shader.hpp">
@@ -63,22 +51,10 @@
     <ClInclude Include="src\error.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\IBO.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\VBO.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\VAO.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\game.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\texture.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\cell.hpp">
+    <ClInclude Include="src\renderer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

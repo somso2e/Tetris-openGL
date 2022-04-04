@@ -163,32 +163,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\cell.cpp" />
-    <ClCompile Include="src\texture.cpp" />
-    <ClCompile Include="src\IBO.cpp" />
+    <ClCompile Include="src\renderer.cpp" />
     <ClCompile Include="src\error.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\shader.cpp" />
     <ClCompile Include="src\stb.cpp" />
-    <ClCompile Include="src\VAO.cpp" />
-    <ClCompile Include="src\VBO.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\shaders\EmptyCell.fragment" />
-    <None Include="res\shaders\EmptyCell.vertex" />
+    <None Include="res\shaders\fragment.glsl" />
+    <None Include="res\shaders\vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\cell.hpp" />
+    <ClInclude Include="src\renderer.hpp" />
     <ClInclude Include="src\common.hpp" />
-    <ClInclude Include="src\IBO.hpp" />
     <ClInclude Include="src\error.hpp" />
     <ClInclude Include="src\game.hpp" />
     <ClInclude Include="src\shader.hpp" />
-    <ClInclude Include="src\texture.hpp" />
-    <ClInclude Include="src\VAO.hpp" />
-    <ClInclude Include="src\VBO.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\textures\EmptyCell.png" />

@@ -1,20 +1,23 @@
+#pragma once
 #ifndef GAME_HPP
 #define GAME_HPP
 
 #include <random>
-#include "cell.hpp"
-enum class TetrimoType {
+#include <glm/gtc/matrix_transform.hpp>
+#include "shader.hpp"
+#include "renderer.hpp"
+enum class TetrominoType {
 	I, O, J, L, T, S, Z
 };
 
-struct Tetrimo {
+struct Tetromino {
 	std::array <std::array<bool, 4>, 4>  shape = { {0} };
 	Color color = Color::Gray;
-	enum TetrimoType type;
+	enum TetrominoType type;
 	int x = 0;
 	int y = 0;
 	int rotation = 0;
-	bool placed = 0;
+	bool placed = false;
 };
 
 const int NUM_OF_TETRIMOS = 7;
@@ -30,94 +33,92 @@ enum class Movement {
 
 class Game {
 public:
-	GLFWwindow* window;
-
-
-	// ?????
-	bool KeysProcessed[350] = { true };
-
 	Game(GLFWwindow* window);
 	~Game();
 	void Update();
-private:
-	Shader shader;
-	Texture EmptyCellTexture;
-	Cell m_cell;
-	bool Keys[350]{ false };
-	
-	std::array<std::array<Color, NUM_OF_CELLS_H>, NUM_OF_CELLS_W> Map = { {Color::Gray} };
-	
-	Tetrimo ActiveTetrimo;
-	
-	void MoveTetrimo(Tetrimo tetrimo, Movement movement);
-	bool HasCollied(Tetrimo tetrimo);
 
-	Tetrimo GenerateNewTetrimo();
+private:
+	GLuint EmptyCellTextureID, tex2, tex3;
+
+	uint8_t Keys[350] = { 0 };
+
+	bool KeysPressed[350]{ false };
+	bool KeysProcessed[350]{ false };
+	bool KeysHeld[350]{ false };
+	//bool KeysProcessed[350]{ false };
+
+	std::array<std::array<Color, NUM_OF_CELLS_H>, NUM_OF_CELLS_W> Map = { {Color::Gray} };
+	Tetromino ActiveTetromino;
+	float ts = 0.0f, inputTime = 0.0f, Delay = 1.0f;
+
+	void MoveTetromino(Movement movement);
+	bool HasCollied(Tetromino tetromino);
+	void ProcessInput();
+	Tetromino GenerateNewTetromino();
+	glm::vec4 GetColor(Color color);
 	void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 	static void s_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
-
-	void ProcessInput();
-
+	// TESTING
+	float x = 0.0f, y = 0.0f, sizeX = 0.5f, sizeY = 0.5f;
 };
 
-const std::vector<Tetrimo> tetrimos{
+
+const std::vector<Tetromino> tetrominos{
 	//I
-	Tetrimo{{{
+	Tetromino{{{
 		{0, 0, 0, 0},
 		{1, 1, 1, 1},
 		{0, 0, 0, 0},
 		{0, 0, 0, 0}}}
 
-		,Color::Cyan, TetrimoType::I},
+		,Color::Cyan, TetrominoType::I},
 	// O
-	Tetrimo{{{
+	Tetromino{{{
 		{0, 0, 0, 0},
 		{0, 1, 1, 0},
 		{0, 1, 1, 0},
 		{0, 0, 0, 0}}}
 
-		,Color::Yellow, TetrimoType::O},
+		,Color::Yellow, TetrominoType::O},
 	// J
-	Tetrimo{{{
+	Tetromino{{{
 		{0, 0, 0, 0},
 		{1, 1, 1, 0},
 		{0, 0, 1, 0},
 		{0, 0, 0, 0}}}
 
-		,Color::Magenta, TetrimoType::J},
+		,Color::Magenta, TetrominoType::J},
 	// L
-	Tetrimo{{{
+	Tetromino{{{
 		{0, 0, 0, 0},
 		{0, 0, 1, 0},
 		{1, 1, 1, 0},
 		{0, 0, 0, 0}}}
 
-		,Color::Orange, TetrimoType::L},
+		,Color::Orange, TetrominoType::L},
 	// T
-	Tetrimo{{{
+	Tetromino{{{
 		{0, 0, 0, 0},
 		{0, 1, 0, 0},
 		{1, 1, 1, 0},
 		{0, 0, 0, 0}}}
 
-		,Color::Green, TetrimoType::T},
+		,Color::Green, TetrominoType::T},
 	// S
-	Tetrimo{{{
+	Tetromino{{{
 		{0, 0, 0, 0},
 		{0, 1, 1, 0},
 		{1, 1, 0, 0},
 		{0, 0, 0, 0}}}
 
-		,Color::Pink, TetrimoType::S},
-
+		,Color::Pink, TetrominoType::S},
 	// Z
-	Tetrimo{{{
+	Tetromino{{{
 		{0, 0, 0, 0},
 		{1, 1, 0, 0},
 		{0, 1, 1, 0},
 		{0, 0, 0, 0}}}
 
-		,Color::Red, TetrimoType::Z},
+		,Color::Red, TetrominoType::Z},
 };
-
 #endif
