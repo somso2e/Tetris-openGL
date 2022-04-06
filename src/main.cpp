@@ -27,18 +27,9 @@ int main() {
 	glDebugMessageCallback(MessageCallback, 0);
 	glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DEBUG_SEVERITY_NOTIFICATION, 0, NULL, GL_FALSE);
 	Game game(window);
-	//glfwSwapInterval(1);
-
-	float deltaTime = 0.0f;
-	float lastFrame = 0.0f;
 
 	while (!glfwWindowShouldClose(window)) {
 		glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
-
-		float currentFrame = glfwGetTime();
-		deltaTime = currentFrame - lastFrame;
-		lastFrame = currentFrame;
-		//std::cout << 1 / deltaTime << std::endl;
 
 		game.Update();
 		glfwSwapBuffers(window);

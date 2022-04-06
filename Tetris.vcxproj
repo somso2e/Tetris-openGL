@@ -102,7 +102,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\glew-2.1.0\lib\Release\x64\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\lib-vc2022\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\glew-2.1.0\lib\Release\x64\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\lib-vc2022\;$(SolutionDir)Dependencies\glad-4.6\src</AdditionalLibraryDirectories>
       <AdditionalDependencies>glew32s.lib;glfw3.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -122,7 +122,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\glew-2.1.0\lib\Release\x64\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\lib-vc2022\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\glew-2.1.0\lib\Release\x64\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\lib-vc2022\;$(SolutionDir)Dependencies\glad-4.6\src</AdditionalLibraryDirectories>
       <AdditionalDependencies>glew32s.lib;glfw3.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -138,7 +138,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\glew-2.1.0\lib\Release\x64\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\lib-vc2022\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\glew-2.1.0\lib\Release\x64\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\lib-vc2022\;$(SolutionDir)Dependencies\glad-4.6\src</AdditionalLibraryDirectories>
       <AdditionalDependencies>glew32s.lib;glfw3.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -158,11 +158,12 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\glew-2.1.0\lib\Release\x64\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\lib-vc2022\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\glew-2.1.0\lib\Release\x64\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\lib-vc2022\;$(SolutionDir)Dependencies\glad-4.6\src</AdditionalLibraryDirectories>
       <AdditionalDependencies>glew32s.lib;glfw3.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\application.cpp" />
     <ClCompile Include="src\renderer.cpp" />
     <ClCompile Include="src\error.cpp" />
     <ClCompile Include="src\game.cpp" />
@@ -176,6 +177,7 @@
     <None Include="res\shaders\vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\application.hpp" />
     <ClInclude Include="src\renderer.hpp" />
     <ClInclude Include="src\common.hpp" />
     <ClInclude Include="src\error.hpp" />
