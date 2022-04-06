@@ -26,16 +26,16 @@ int main() {
 
 	glDebugMessageCallback(MessageCallback, 0);
 	glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DEBUG_SEVERITY_NOTIFICATION, 0, NULL, GL_FALSE);
-	Game game(window);
+	Game Tetris;
+	Tetris.Init(window);
 
 	while (!glfwWindowShouldClose(window)) {
 		glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
 
-		game.Update();
+		Tetris.Update();
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
-
 	glfwDestroyWindow(window);
 	glfwTerminate();
 	return 0;

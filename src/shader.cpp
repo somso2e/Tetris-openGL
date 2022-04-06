@@ -2,7 +2,6 @@
 
 void Shader::Compile(std::string vertexFile, std::string fragmentFile) {
 	ID = glCreateProgram();
-	//glObjectLabel(GL_SHADER, ID, -1, "shader");
 	std::string vertexCode = GetShaderFileContent(vertexFile);
 	std::string fragmentCode = GetShaderFileContent(fragmentFile);
 	unsigned int vertexShader = CompileSourceFile(GL_VERTEX_SHADER, vertexCode.c_str());
@@ -14,6 +13,8 @@ void Shader::Compile(std::string vertexFile, std::string fragmentFile) {
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
 }
+
+
 unsigned int Shader::CompileSourceFile(unsigned int type, const char* source) {
 	unsigned int ID = glCreateShader(type);
 	glShaderSource(ID, 1, &source, nullptr);
@@ -34,10 +35,12 @@ unsigned int Shader::CompileSourceFile(unsigned int type, const char* source) {
 	return ID;
 }
 
+
 void Shader::SetMatrix4(const char* name, glm::mat4 matrix) {
 	Use();
 	glUniformMatrix4fv(glGetUniformLocation(ID, name), 1, false, glm::value_ptr(matrix));
 }
+
 
 void Shader::SetUniform1iv(const char* name, GLsizei count, const GLint* value) {
 	Use();

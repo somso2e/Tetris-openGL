@@ -1,6 +1,7 @@
 #include "game.hpp"
 
-Game::Game(GLFWwindow* window) {
+void Game::Init(GLFWwindow* window) {
+	this->window = window;
 	glfwSetWindowUserPointer(window, this);
 	glfwSetKeyCallback(window, s_key_callback);
 
@@ -9,6 +10,20 @@ Game::Game(GLFWwindow* window) {
 	EmptyCellTextureID = Renderer::LoadTexture("res/textures/EmptyCell.png");
 
 	ActiveTetromino = GenerateNewTetromino();
+
+	Score = 0;
+	Level = 1;
+
+	memset(Keys, GLFW_RELEASE, sizeof(Keys));
+	memset(KeysProcessed, false, sizeof(Keys));
+
+	Map = { {Color::Gray} };
+	ts = glfwGetTime();
+	Speed = 1.0f;
+	NoMovement = 0;
+	PreviousState = point(0, 0);
+
+	CanSwap = true, FirstSwap = true;
 }
 
 Game::~Game() {
@@ -19,18 +34,28 @@ void Game::Update() {
 
 	//auto timeNow = glfwGetTime();
 
-	if (glfwGetTime() >= ts + Delay) {
-		MoveTetromino(Movement::Down);
-		ts += Delay;
+	if (glfwGetTime() >= ts + Speed) {
+		MoveTetromino(ActiveTetromino, Movement::Down);
+		ts += Speed;
 		if (ActiveTetromino.origin == PreviousState) {
-			NoMovement;
+			NoMovement++;
 		}
 		else {
 			NoMovement = 0;
 		}
-		PreviousState = ActiveTetromino.origin;
+		std::cout << "Score:" << Score << std::endl;
 	}
 
+	PreviousState = ActiveTetromino.origin;
+
+	if (NoMovement == 3) {
+		ActiveTetromino.placed = true;
+		NoMovement = 0;
+	}
+
+
+	// Clear Lines
+	uint8_t clearedLines = 0;
 	for (int j = 0; j < NUM_OF_CELLS_H; j++) {
 		int occupiedCells = 0;
 		for (int i = 0; i < NUM_OF_CELLS_W; i++) {
@@ -40,6 +65,7 @@ void Game::Update() {
 		}
 		// Row is filled
 		if (occupiedCells == NUM_OF_CELLS_W) {
+			clearedLines++;
 			for (int j2 = j; 0 < j2; j2--) {
 				for (int i = 0; i < NUM_OF_CELLS_W; i++) {
 					Map.at(i).at(j2) = Map.at(i).at(j2 - 1);
@@ -48,22 +74,21 @@ void Game::Update() {
 
 		}
 	}
+	uint32_t linesClearedScores[5] = { 0,40, 100, 300, 1200 };
+	Score += Level * (linesClearedScores[clearedLines]);
 
 	ProcessInput();
-
+	// Append the active tetromino to a temporary map
 	auto DisplayMap = Map;
 	for (auto const& piece : ActiveTetromino.coords) {
 		point coords = piece + ActiveTetromino.origin;
 		DisplayMap.at(coords.x).at(coords.y) = ActiveTetromino.color;
 	}
 
-	if (NoMovement == 3) {
-		ActiveTetromino.placed = true;
-		NoMovement = 0;
-	}
-
 	// If previous tetromino was placed generate a new one
 	if (ActiveTetromino.placed) {
+		CanSwap = true;
+		// Permenantly add the Active Tetromino to the map
 		for (auto const& piece : ActiveTetromino.coords) {
 			point coords = piece + ActiveTetromino.origin;
 			Map.at(coords.x).at(coords.y) = ActiveTetromino.color;
@@ -74,13 +99,11 @@ void Game::Update() {
 		if (HasCollied(ActiveTetromino)) {
 			// GAME OVER
 			std::cout << "GAME OVER" << std::endl;
-			while (1);
+			std::cin;
+			Restart();
 		}
 	}
-
-
-
-
+	// Render the screen
 	Renderer::BeginBatch();
 	for (int j = 0; j < NUM_OF_CELLS_H; j++) {
 		for (int i = 0; i < NUM_OF_CELLS_W; i++) {
@@ -91,7 +114,7 @@ void Game::Update() {
 				EmptyCellTextureID);
 		}
 	}
-
+	RenderGhost();
 	Renderer::EndBatch();
 	Renderer::Flush();
 }
@@ -103,64 +126,68 @@ Game::Tetromino Game::GenerateNewTetromino() {
 	std::uniform_int_distribution<uint32_t> distribution(0, 7 - 1);
 	auto seed = distribution(generator);
 
-	Tetromino generatedTetromino = tetrominos.at(seed);
+	Tetromino generatedTetromino = tetrominoes.at(seed);
 	return generatedTetromino;
 }
 
 
-bool Game::MoveTetromino(Movement movement) {
-	Tetromino originalTetromino = ActiveTetromino;
+bool Game::MoveTetromino(Tetromino& tetromino, Movement movement) {
+	Tetromino original = tetromino;
 	switch (movement) {
 		using enum TetrominoType;
 		using enum Movement;
 	case Right:
-		ActiveTetromino.origin.x++;
+		tetromino.origin.x++;
 		break;
 
 	case Left:
-		ActiveTetromino.origin.x--;
+		tetromino.origin.x--;
 		break;
 
 	case Down:
-		ActiveTetromino.origin.y++;
+		tetromino.origin.y++;
 		break;
 
 	case RotateR:
 	case RotateL:
-		if (ActiveTetromino.type != O) {
-			auto tempTetromino = ActiveTetromino;
-			if (movement == RotateR) {
-				tempTetromino.rotation = (++tempTetromino.rotation % 4 + 4) % 4;
+		if (tetromino.type != O) {
 
-				for (auto& piece : tempTetromino.coords) {
+			if (movement == RotateR) {
+				tetromino.rotation = (++tetromino.rotation % 4 + 4) % 4;
+
+				for (auto& piece : tetromino.coords) {
 					piece = point(-piece.y, +piece.x);
 				}
 			}
 			else if (movement == RotateL) {
-				tempTetromino.rotation = (--tempTetromino.rotation % 4 + 4) % 4;
+				tetromino.rotation = (--tetromino.rotation % 4 + 4) % 4;
 
-				for (auto& piece : tempTetromino.coords) {
+				for (auto& piece : tetromino.coords) {
 					piece = point(+piece.y, -piece.x);
 				}
 			}
 
-			auto& offsetArray = tempTetromino.type == I ? Offsets_I : Offsets_JLSTZ;
+			auto& offsetArray = tetromino.type == I ? Offsets_I : Offsets_JLSTZ;
 			for (int i = 0; i < 5; i++) {
-				auto offset = offsetArray.at(ActiveTetromino.rotation).at(i) - offsetArray.at(tempTetromino.rotation).at(i);
-				tempTetromino.origin = ActiveTetromino.origin + offset;
-				if (!HasCollied(tempTetromino)) {
-					ActiveTetromino = tempTetromino;
-					break;
+				auto offset = offsetArray.at(original.rotation).at(i) - offsetArray.at(tetromino.rotation).at(i);
+				tetromino.origin = original.origin + offset;
+				//	Check for collision with each offset. 
+				//	Return with the first offset that didn't collied
+				auto collision = HasCollied(tetromino);
+				if (!collision) {
+					return false;
 				}
 			}
 		}
 		break;
 	}
-	auto collition = HasCollied(ActiveTetromino);
-	if (collition) {
-		ActiveTetromino = originalTetromino;
+
+	auto collision = HasCollied(tetromino);
+	if (collision) {
+		tetromino = original;
 	}
-	return collition;
+
+	return collision;
 }
 
 
@@ -183,35 +210,79 @@ bool Game::HasCollied(Tetromino tetromino) {
 
 }
 
+void Game::SwapTetromino() {
+	if (CanSwap) {
+		if (FirstSwap) {
+			HeldTetrominoType = ActiveTetromino.type;
+			ActiveTetromino = GenerateNewTetromino();
+			FirstSwap = false;
+		}
+		else {
+			auto original = ActiveTetromino.type;
+			ActiveTetromino = tetrominoes.at(HeldTetrominoType);
+			HeldTetrominoType = original;
+			CanSwap = false;
+		}
+	}
+}
+
+void Game::RenderGhost() {
+	auto ghost = ActiveTetromino;
+	while (!MoveTetromino(ghost, Movement::Down));
+	for (const auto& piece : ghost.coords) {
+		Renderer::DrawQuad(
+			glm::vec2((float)(piece.x + ghost.origin.x), (float)(piece.y + ghost.origin.y)),
+			glm::vec2(1.0f, 1.0f),
+			GetColor(ghost.color),
+			EmptyCellTextureID);
+
+	}
+}
+
+void Game::Restart() {
+	Init(this->window);
+}
+
+
+
 #define CHECK_KEYS(index) ((Keys[index] == GLFW_PRESS || Keys[index] == GLFW_REPEAT) && !KeysProcessed[index]) 
 void Game::ProcessInput() {
 
 	if CHECK_KEYS(GLFW_KEY_RIGHT) {
-		MoveTetromino(Movement::Right);
+		MoveTetromino(ActiveTetromino, Movement::Right);
 		KeysProcessed[GLFW_KEY_RIGHT] = true;
 	}
 	else if CHECK_KEYS(GLFW_KEY_LEFT) {
-		MoveTetromino(Movement::Left);
+		MoveTetromino(ActiveTetromino, Movement::Left);
 		KeysProcessed[GLFW_KEY_LEFT] = true;
 	}
 	else if CHECK_KEYS(GLFW_KEY_DOWN) {
-		MoveTetromino(Movement::Down);
+		MoveTetromino(ActiveTetromino, Movement::Down);
+		Score += 1;
 		KeysProcessed[GLFW_KEY_DOWN] = true;
 	}
 	else if CHECK_KEYS(GLFW_KEY_UP) {
-		MoveTetromino(Movement::RotateR);
+		MoveTetromino(ActiveTetromino, Movement::RotateR);
 		KeysProcessed[GLFW_KEY_UP] = true;
 	}
 	else if CHECK_KEYS(GLFW_KEY_W) {
-		MoveTetromino(Movement::RotateL);
+		MoveTetromino(ActiveTetromino, Movement::RotateL);
 		KeysProcessed[GLFW_KEY_W] = true;
 	}
 	else if CHECK_KEYS(GLFW_KEY_SPACE) {
-		while (!MoveTetromino(Movement::Down)) {
+		while (!MoveTetromino(ActiveTetromino, Movement::Down)) {
+			Score += 2;
 		}
 		ActiveTetromino.placed = true;
 		KeysProcessed[GLFW_KEY_SPACE] = true;
-
+	}
+	else if CHECK_KEYS(GLFW_KEY_C) {
+		SwapTetromino();
+		KeysProcessed[GLFW_KEY_C] = true;
+	}
+	else if CHECK_KEYS(GLFW_KEY_R) {
+		Restart();
+		KeysProcessed[GLFW_KEY_R] = true;
 	}
 
 

@@ -6,10 +6,10 @@
 #include <stb/stb_image.h>
 #include "shader.hpp"
 
-static const int MAX_QUAD_COUNT = 1000;
-static const int MAX_VERTEX_COUNT = MAX_QUAD_COUNT * 4;
-static const int MAX_INDEX_COUNT = MAX_QUAD_COUNT * 6;
-static const int MAX_TEXTURE_COUNT = 32;
+static const uint32_t MAX_QUAD_COUNT = 1000;
+static const uint32_t MAX_VERTEX_COUNT = MAX_QUAD_COUNT * 4;
+static const uint32_t MAX_INDEX_COUNT = MAX_QUAD_COUNT * 6;
+static const uint8_t MAX_TEXTURE_COUNT = 32;
 
 namespace Renderer {
 

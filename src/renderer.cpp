@@ -2,17 +2,16 @@
 
 
 void Renderer::Init() {
-	//Shader
+	// Initilize the shader
 	s_Data.Shader.Compile("res/shaders/vertex.glsl", "res/shaders/fragment.glsl");
 	s_Data.Shader.Use();
-
 	GLint samplers[MAX_TEXTURE_COUNT];
 	for (int i = 0; i < MAX_TEXTURE_COUNT; i++) {
 		samplers[i] = i;
 	}
 	s_Data.Shader.SetUniform1iv("uTextures", MAX_TEXTURE_COUNT, samplers);
 
-	// Set vertex attribute 
+	// Set vertex attributes
 	s_Data.Buffer = new Vertex[MAX_VERTEX_COUNT];
 
 	glCreateVertexArrays(1, &s_Data.VAO);
@@ -21,7 +20,6 @@ void Renderer::Init() {
 	glCreateBuffers(1, &s_Data.VBO);
 	glBindBuffer(GL_ARRAY_BUFFER, s_Data.VBO);
 	glBufferData(GL_ARRAY_BUFFER, MAX_VERTEX_COUNT * sizeof(Vertex), nullptr, GL_DYNAMIC_DRAW);
-
 
 	glEnableVertexArrayAttrib(s_Data.VAO, 0);
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, Vertex::Position));
@@ -64,7 +62,6 @@ void Renderer::Init() {
 	uint32_t whiteColor = 0xFFFFFFFF;
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, &whiteColor);
 
-	memset(&s_Data.TextureSlots, 0, sizeof(s_Data.TextureSlots));
 	s_Data.TextureSlots[0] = s_Data.WhiteTextureID;
 }
 
@@ -87,7 +84,6 @@ void Renderer::BeginBatch() {
 }
 
 void Renderer::EndBatch() {
-
 	const glm::mat4 projection = glm::ortho(
 		0.0f, static_cast<float> (WINDOW_WIDTH),
 		static_cast<float> (WINDOW_HEIGHT), 0.0f,
