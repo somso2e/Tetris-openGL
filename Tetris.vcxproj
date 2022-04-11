@@ -74,21 +74,25 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -96,14 +100,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\;$(SolutionDir)Dependencies\glm-0.9.9.7\;$(SolutionDir)Dependencies\glad-4.6\include;$(SolutionDir)Tetris\src\;$(SolutionDir)Dependencies\glew-2.1.0\include\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\include\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\;$(SolutionDir)Dependencies\glm-0.9.9.7\;$(SolutionDir)Dependencies\glad-4.6\include;$(SolutionDir)Tetris\src\;$(SolutionDir)Dependencies\glew-2.1.0\include\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\include\;$(SolutionDir)Dependencies\freetype\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\glew-2.1.0\lib\Release\x64\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\lib-vc2022\;$(SolutionDir)Dependencies\glad-4.6\src</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;OpenGL32.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\glew-2.1.0\lib\Release\x64\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\lib-vc2022\;$(SolutionDir)Dependencies\glad-4.6\src;$(SolutionDir)Dependencies\freetype-2.12.0\objs\x64\Release Static\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -114,7 +118,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\;$(SolutionDir)Dependencies\glm-0.9.9.7\;$(SolutionDir)Dependencies\glad-4.6\include;$(SolutionDir)Tetris\src\;$(SolutionDir)Dependencies\glew-2.1.0\include\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\include\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\;$(SolutionDir)Dependencies\glm-0.9.9.7\;$(SolutionDir)Dependencies\glad-4.6\include;$(SolutionDir)Tetris\src\;$(SolutionDir)Dependencies\glew-2.1.0\include\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\include\;$(SolutionDir)Dependencies\freetype\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -122,8 +126,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\glew-2.1.0\lib\Release\x64\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\lib-vc2022\;$(SolutionDir)Dependencies\glad-4.6\src</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;OpenGL32.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\glew-2.1.0\lib\Release\x64\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\lib-vc2022\;$(SolutionDir)Dependencies\glad-4.6\src;$(SolutionDir)Dependencies\freetype-2.12.0\objs\x64\Release Static\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -132,14 +136,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\;$(SolutionDir)Dependencies\glm-0.9.9.7\;$(SolutionDir)Dependencies\glad-4.6\include;$(SolutionDir)Tetris\src\;$(SolutionDir)Dependencies\glew-2.1.0\include\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\include\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\;$(SolutionDir)Dependencies\glm-0.9.9.7\;$(SolutionDir)Dependencies\glad-4.6\include;$(SolutionDir)Tetris\src\;$(SolutionDir)Dependencies\glew-2.1.0\include\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\include\;$(SolutionDir)Dependencies\freetype\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\glew-2.1.0\lib\Release\x64\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\lib-vc2022\;$(SolutionDir)Dependencies\glad-4.6\src</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;OpenGL32.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\glew-2.1.0\lib\Release\x64\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\lib-vc2022\;$(SolutionDir)Dependencies\glad-4.6\src;$(SolutionDir)Dependencies\freetype-2.12.0\objs\x64\Release Static\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -150,7 +154,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\;$(SolutionDir)Dependencies\glm-0.9.9.7\;$(SolutionDir)Dependencies\glad-4.6\include;$(SolutionDir)Tetris\src\;$(SolutionDir)Dependencies\glew-2.1.0\include\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\include\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\;$(SolutionDir)Dependencies\glm-0.9.9.7\;$(SolutionDir)Dependencies\glad-4.6\include;$(SolutionDir)Tetris\src\;$(SolutionDir)Dependencies\glew-2.1.0\include\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\include\;$(SolutionDir)Dependencies\freetype\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -158,8 +162,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\glew-2.1.0\lib\Release\x64\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\lib-vc2022\;$(SolutionDir)Dependencies\glad-4.6\src</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;OpenGL32.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\glew-2.1.0\lib\Release\x64\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\lib-vc2022\;$(SolutionDir)Dependencies\glad-4.6\src;$(SolutionDir)Dependencies\freetype-2.12.0\objs\x64\Release Static\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -174,6 +178,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\fragment.glsl" />
+    <None Include="res\shaders\text_fragment.glsl" />
+    <None Include="res\shaders\text_vertex.glsl" />
     <None Include="res\shaders\vertex.glsl" />
   </ItemGroup>
   <ItemGroup>

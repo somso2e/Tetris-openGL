@@ -1,15 +1,18 @@
 #include "renderer.hpp"
 
 
-void Renderer::Init() {
+void Renderer::Init2D() {
+	if (s_Data.Initilized)
+		return;
+	s_Data.Initilized = true;
 	// Initilize the shader
-	s_Data.Shader.Compile("res/shaders/vertex.glsl", "res/shaders/fragment.glsl");
-	s_Data.Shader.Use();
+	s_Data.QuadShader.Compile("res/shaders/vertex.glsl", "res/shaders/fragment.glsl");
+	s_Data.QuadShader.Use();
 	GLint samplers[MAX_TEXTURE_COUNT];
 	for (int i = 0; i < MAX_TEXTURE_COUNT; i++) {
 		samplers[i] = i;
 	}
-	s_Data.Shader.SetUniform1iv("uTextures", MAX_TEXTURE_COUNT, samplers);
+	s_Data.QuadShader.SetUniform1iv("uTextures", MAX_TEXTURE_COUNT, samplers);
 
 	// Set vertex attributes
 	s_Data.Buffer = new Vertex[MAX_VERTEX_COUNT];
@@ -50,7 +53,7 @@ void Renderer::Init() {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, s_Data.IBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-	//Set defult white texture 
+	//Set default white texture 
 	glCreateTextures(GL_TEXTURE_2D, 1, &s_Data.WhiteTextureID);
 	glBindTexture(GL_TEXTURE_2D, s_Data.WhiteTextureID);
 
@@ -65,6 +68,7 @@ void Renderer::Init() {
 	s_Data.TextureSlots[0] = s_Data.WhiteTextureID;
 }
 
+
 void Renderer::Shutdown() {
 	glDeleteVertexArrays(1, &s_Data.VAO);
 	glDeleteBuffers(1, &s_Data.VBO);
@@ -74,25 +78,27 @@ void Renderer::Shutdown() {
 		glDeleteTextures(1, &s_Data.TextureSlots[i]);
 
 	delete[] s_Data.Buffer;
-	s_Data.Shader.Delete();
+	s_Data.QuadShader.Delete();
 }
+
 
 void Renderer::BeginBatch() {
 	glClear(GL_COLOR_BUFFER_BIT);
-	s_Data.Shader.Use();
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	s_Data.QuadShader.Use();
 	s_Data.BufferPtr = s_Data.Buffer;
 }
+
 
 void Renderer::EndBatch() {
 	const glm::mat4 projection = glm::ortho(
 		0.0f, static_cast<float> (WINDOW_WIDTH),
 		static_cast<float> (WINDOW_HEIGHT), 0.0f,
 		0.0f, 1.0f);
-	s_Data.Shader.SetMatrix4("projection", projection);
+	s_Data.QuadShader.SetMatrix4("projection", projection);
 
 	glm::mat4 model = glm::mat4(1.0f);
-	model = glm::scale(model, glm::vec3(CELL_WIDTH, CELL_HEIGHT, 1.0f));
-	s_Data.Shader.SetMatrix4("model", model);
+	s_Data.QuadShader.SetMatrix4("model", model);
 
 
 	GLsizeiptr size = (uint8_t*)s_Data.BufferPtr - (uint8_t*)s_Data.Buffer;
@@ -168,7 +174,7 @@ GLuint Renderer::LoadTexture(const char* imageFilePath) {
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, widthImg, heightImg, 0, GL_RGB, GL_UNSIGNED_BYTE, bytes);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, widthImg, heightImg, 0, GL_RGB, GL_UNSIGNED_BYTE, bytes);
 
 	glGenerateMipmap(GL_TEXTURE_2D);
 
@@ -183,4 +189,166 @@ void Renderer::Flush() {
 	glBindVertexArray(s_Data.VAO);
 	glDrawElements(GL_TRIANGLES, s_Data.IndexCount, GL_UNSIGNED_INT, nullptr);
 	s_Data.IndexCount = 0;
+}
+
+///////////////////////////
+FT_Face Renderer::InitText(const char* fontFilePath) {
+	if (!s_Data.Initilized) {
+		Renderer::Init2D();
+	}
+	FT_Library ft;
+	if (FT_Init_FreeType(&ft)) {
+		std::cerr << "[ERROR](Text) Could not init FreeType Library" << std::endl;
+	}
+	FT_Face face;
+	if (FT_New_Face(ft, fontFilePath, 0, &face)) {
+		std::cerr << "[ERROR](Text) Failed to load font" << std::endl;
+	}
+	return face;
+}
+
+void Renderer::Atlas::Create(Font font, int height) {
+	auto& face = font;
+
+	FT_Set_Pixel_Sizes(face, 0, height);
+	FT_GlyphSlot g = face->glyph;
+
+	unsigned int roww = 0;
+	unsigned int rowh = 0;
+
+	unsigned int rowWidth = 0;
+	unsigned int rowHeight = 0;
+
+	memset(Characters, 0, sizeof Characters);
+	std::cout << "asd";
+	for (auto i = 32; i < 128; i++) {
+		if (FT_Load_Char(face, i, FT_LOAD_RENDER)) {
+			std::cerr << "Loading character" << (char)i << "failed!\n";
+			continue;
+		}
+		if (rowWidth + g->bitmap.width + 1 >= MAXWIDTH) {
+
+		}
+	}
+	for (int i = 32; i < 128; i++) {
+		if (FT_Load_Char(face, i, FT_LOAD_RENDER)) {
+			std::cerr << "Loading character" << (char)i << "failed!\n";
+			continue;
+		}
+		rowWidth += g->bitmap.width + 1;
+		rowHeight = std::max(rowHeight, g->bitmap.rows);
+
+		if (rowWidth + g->bitmap.width + 1 >= MAXWIDTH) {
+			textureWidth = std::max(textureWidth, rowWidth);
+			textureHeight += rowWidth;
+			rowWidth = 0;
+			rowHeight = 0;
+		}
+	}
+
+	textureWidth = std::max(textureWidth, rowWidth);
+	textureHeight += rowHeight;
+
+	glCreateTextures(GL_TEXTURE_2D, 1, &TextureID);
+	glBindTexture(GL_TEXTURE_2D, TextureID);
+
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RED, textureWidth, textureHeight, 0, GL_RED, GL_UNSIGNED_BYTE, 0);
+
+	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+
+	int offsetX = 0;
+	int offsetY = 0;
+
+	rowh = 0;
+
+	for (int i = 32; i < 128; i++) {
+		if (FT_Load_Char(face, i, FT_LOAD_RENDER)) {
+			std::cerr << "Loading character" << i << "failed!\n";
+			continue;
+		}
+
+		if (offsetX + g->bitmap.width + 1 >= MAXWIDTH) {
+			offsetY += rowh;
+			rowh = 0;
+			offsetX = 0;
+		}
+
+		glTexSubImage2D(GL_TEXTURE_2D, 0, offsetX, offsetY, g->bitmap.width, g->bitmap.rows, GL_RED, GL_UNSIGNED_BYTE, g->bitmap.buffer);
+		Characters[i].advance.x = (float)(g->advance.x >> 6);
+		Characters[i].advance.y = (float)(g->advance.y >> 6);
+
+		Characters[i].bitmapW = (float)g->bitmap.width;
+		Characters[i].bitmapH = (float)g->bitmap.rows;
+
+		Characters[i].bitmapL = (float)g->bitmap_left;
+		Characters[i].bitmapT = (float)g->bitmap_top;
+
+		Characters[i].textureOffset.x = offsetX / (float)textureHeight;
+		Characters[i].textureOffset.y = offsetY / (float)textureWidth;
+
+		rowh = std::max(rowh, g->bitmap.rows);
+		offsetX += g->bitmap.width + 1;
+	}
+	//glPixelStorei(GL_PACK_ALIGNMENT, 1);
+
+}
+
+void Renderer::Atlas::Draw(std::string text, glm::vec2 position, glm::vec2 size, const glm::vec4& color) {
+	float textureIndex = 0.0f;
+	for (uint32_t i = 1; i < s_Data.TextureSlotIndex; i++) {
+		if (s_Data.TextureSlots[i] == this->TextureID) {
+			textureIndex = (float)i;
+		}
+	}
+	if (textureIndex == 0.0f) {
+		textureIndex = (float)s_Data.TextureSlotIndex;
+		s_Data.TextureSlots[s_Data.TextureSlotIndex] = this->TextureID;
+		s_Data.TextureSlotIndex++;
+	}
+
+	for (const auto& i : text) {
+		if (s_Data.IndexCount >= MAX_INDEX_COUNT || s_Data.TextureSlotIndex > 31) {
+			EndBatch();
+			Flush();
+			BeginBatch();
+		}
+		auto c = Characters[i];
+		auto x = position.x + c.bitmapL;
+		auto y = position.y + c.bitmapT;
+		s_Data.BufferPtr->Position = { x, y };
+		s_Data.BufferPtr->Color = color;
+		s_Data.BufferPtr->TexCoords = { c.textureOffset.x ,c.textureOffset.y };
+		s_Data.BufferPtr->TexIndex = textureIndex;
+		s_Data.BufferPtr++;
+
+		s_Data.BufferPtr->Position = { x + c.bitmapW, y };
+		s_Data.BufferPtr->Color = color;
+		s_Data.BufferPtr->TexCoords = { c.textureOffset.x + c.bitmapW / textureWidth ,c.textureOffset.y };
+		s_Data.BufferPtr->TexIndex = textureIndex;
+		s_Data.BufferPtr++;
+
+		s_Data.BufferPtr->Position = { x + c.bitmapW, y + c.bitmapH };
+		s_Data.BufferPtr->Color = color;
+		s_Data.BufferPtr->TexCoords = { c.textureOffset.x + c.bitmapW / textureWidth ,c.textureOffset.y + c.bitmapH / textureHeight };
+		s_Data.BufferPtr->TexIndex = textureIndex;
+		s_Data.BufferPtr++;
+
+		s_Data.BufferPtr->Position = { x, y + c.bitmapH };
+		s_Data.BufferPtr->Color = color;
+		s_Data.BufferPtr->TexCoords = { c.textureOffset.x, c.textureOffset.y + c.bitmapH / textureHeight };
+		s_Data.BufferPtr->TexIndex = textureIndex;
+		s_Data.BufferPtr++;
+
+		s_Data.IndexCount += 6;
+
+		position += c.advance;
+	}
+
 }

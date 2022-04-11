@@ -1,7 +1,7 @@
 #pragma once
 #ifndef SHADER_HPP
 #define SHADER_HPP
-#include <common.hpp>
+#include "common.hpp"
 #include <glm/gtc/type_ptr.hpp>
 
 class Shader {

@@ -1,10 +1,10 @@
 #pragma once
-#ifndef RENDERER_HPP
-#define RENDERER_HPP
 
-#include <common.hpp>
+#include "common.hpp"
 #include <stb/stb_image.h>
 #include "shader.hpp"
+#include "ft2build.h"
+#include FT_FREETYPE_H  
 
 static const uint32_t MAX_QUAD_COUNT = 1000;
 static const uint32_t MAX_VERTEX_COUNT = MAX_QUAD_COUNT * 4;
@@ -14,7 +14,7 @@ static const uint8_t MAX_TEXTURE_COUNT = 32;
 namespace Renderer {
 
 
-	void Init();
+	void Init2D();
 	void Shutdown();
 	void BeginBatch();
 	void EndBatch();
@@ -30,7 +30,9 @@ namespace Renderer {
 	};
 
 	struct RendererData {
-		Shader Shader{};
+		bool Initilized = false;
+
+		Shader QuadShader{};
 		GLuint VAO = 0;
 		GLuint VBO = 0;
 		GLuint IBO = 0;
@@ -49,6 +51,34 @@ namespace Renderer {
 	static RendererData s_Data;
 
 
+	typedef FT_Face Font;
+	Font InitText(const char* fontFileName);
+
+	class Atlas {
+	public:
+		void Create(Font font, int height);
+		void Draw(std::string text, glm::vec2 position, glm::vec2 size, const glm::vec4& color);
+	private:
+		//FT_Face Face;
+		static const int MAXWIDTH = 1024;
+		GLuint TextureID;		// texture object
+
+		unsigned int textureWidth = 0;			// width of texture in pixels
+		unsigned int textureHeight = 0;			// height of texture in pixels
+
+		struct {
+			glm::vec2 advance;
+
+			float bitmapW;
+			float bitmapH;
+
+			float bitmapL;
+			float bitmapT;
+			glm::vec2 textureOffset;
+		} Characters[128];
+
+	};
+
 };
 
-#endif
+

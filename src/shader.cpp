@@ -27,7 +27,7 @@ unsigned int Shader::CompileSourceFile(unsigned int type, const char* source) {
 		glGetShaderiv(ID, GL_INFO_LOG_LENGTH, &length);
 		char* message = (char*)_malloca(length * sizeof(char));
 		glGetShaderInfoLog(ID, length, &length, message);
-		std::cout << "Failed to compile " << (type == GL_VERTEX_SHADER ? "vertex" : "fragment") << std::endl;
+		std::cout << "[ERROR](Shader)Failed to compile " << (type == GL_VERTEX_SHADER ? "vertex" : "fragment") << std::endl;
 		std::cout << message << std::endl;
 		glDeleteShader(ID);
 		return 0;
@@ -47,7 +47,7 @@ void Shader::SetUniform1iv(const char* name, GLsizei count, const GLint* value) 
 	auto loc = glGetUniformLocation(ID, name);
 	glUniform1iv(loc, count, value);
 
-}
+}	
 
 void Shader::Use() {
 	glUseProgram(ID);

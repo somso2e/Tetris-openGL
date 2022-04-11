@@ -364,3 +364,5 @@ MigrationBackup/
 FodyWeavers.xsd
 /src/application.cpp
 /src/application.hpp
+/res/fonts
+/res/textures/EmptyCell2.png

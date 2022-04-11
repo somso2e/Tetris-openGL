@@ -1,4 +1,4 @@
-#include <error.hpp>
+#include "error.hpp"
 
 void GLAPIENTRY
 MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) {
@@ -29,8 +29,10 @@ MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei 
 	case GL_DEBUG_SEVERITY_NOTIFICATION: severityEnum = "NOTIFICATION"; break;
 	}
 	std::cerr << "GL CALLBACK: [" << typeEnum << "] Source:" << sourceEnum << " Severity:" << severityEnum << " Message:" << message << std::endl;
-	if (severity!=GL_DEBUG_SEVERITY_NOTIFICATION) {
-		__debugbreak();
+	if (severity != GL_DEBUG_SEVERITY_NOTIFICATION) {
+//#ifdef __MSC_VER_
+		//__debugbreak();
+//#endif	
 	}
 }
 

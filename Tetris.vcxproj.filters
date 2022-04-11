@@ -43,6 +43,8 @@
   <ItemGroup>
     <None Include="res\shaders\fragment.glsl" />
     <None Include="res\shaders\vertex.glsl" />
+    <None Include="res\shaders\text_vertex.glsl" />
+    <None Include="res\shaders\text_fragment.glsl" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\shader.hpp">
