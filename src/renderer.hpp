@@ -1,15 +1,14 @@
 #pragma once
 
-#include "common.hpp"
 #include <stb/stb_image.h>
 #include "shader.hpp"
 #include "ft2build.h"
 #include FT_FREETYPE_H  
 
-static const uint32_t MAX_QUAD_COUNT = 1000;
-static const uint32_t MAX_VERTEX_COUNT = MAX_QUAD_COUNT * 4;
-static const uint32_t MAX_INDEX_COUNT = MAX_QUAD_COUNT * 6;
-static const uint8_t MAX_TEXTURE_COUNT = 32;
+
+static unsigned int windowHeight = 1080;
+static unsigned int windowWidth = 1920;
+
 
 namespace Renderer {
 
@@ -20,13 +19,20 @@ namespace Renderer {
 	void EndBatch();
 	void Flush();
 	GLuint LoadTexture(const char* imageFilePath);
-	void DrawQuad(const glm::vec2& position, const glm::vec2 size, const glm::vec4& color, uint32_t textureID);
+	void DrawQuad(const glm::vec2& position, const glm::vec2 size, const glm::vec4& color, GLuint textureID);
+
+	static const uint32_t MAX_QUAD_COUNT = 1000;
+	static const uint32_t MAX_VERTEX_COUNT = MAX_QUAD_COUNT * 4;
+	static const uint32_t MAX_INDEX_COUNT = MAX_QUAD_COUNT * 6;
+	static const uint8_t MAX_TEXTURE_COUNT = 32;
+
 
 	struct Vertex {
 		glm::vec2 Position;
 		glm::vec4 Color;
 		glm::vec2 TexCoords;
 		float TexIndex;
+		float IsText;
 	};
 
 	struct RendererData {
@@ -48,23 +54,28 @@ namespace Renderer {
 		std::array<uint32_t, MAX_TEXTURE_COUNT> TextureSlots{ 0 };
 		uint32_t TextureSlotIndex = 1;
 	};
-	static RendererData s_Data;
+	extern RendererData Data;
 
-
-	typedef FT_Face Font;
-	Font InitText(const char* fontFileName);
-
-	class Atlas {
+	class Text {
 	public:
-		void Create(Font font, int height);
-		void Draw(std::string text, glm::vec2 position, glm::vec2 size, const glm::vec4& color);
+		void Init(const char* fontFilePath, int height);
+		enum class HorizontalAlignment {
+			Left,
+			Center,
+			Right,
+		};
+		enum class VerticalAlignment {
+			Top,
+			Center,
+			Bottom,
+		};
+		void Write(const std::string& text, glm::vec2 position, glm::vec2 size, const glm::vec4& color, HorizontalAlignment horizontalAlignment = HorizontalAlignment::Left, VerticalAlignment verticalAlignment = VerticalAlignment::Top);
 	private:
-		//FT_Face Face;
-		static const int MAXWIDTH = 1024;
-		GLuint TextureID;		// texture object
+		static const int MAXWIDTH = 4096;
+		float TextureIndex_;
 
-		unsigned int textureWidth = 0;			// width of texture in pixels
-		unsigned int textureHeight = 0;			// height of texture in pixels
+		unsigned int TextureWidth_ = 0;
+		unsigned int TextureHeight_ = 0;
 
 		struct {
 			glm::vec2 advance;
@@ -75,8 +86,9 @@ namespace Renderer {
 			float bitmapL;
 			float bitmapT;
 			glm::vec2 textureOffset;
-		} Characters[128];
+		} Characters_[128];
 
+		float Height_ = 0.0f;
 	};
 
 };

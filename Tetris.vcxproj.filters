@@ -39,12 +39,13 @@
     <ClCompile Include="src\application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\settings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\fragment.glsl" />
     <None Include="res\shaders\vertex.glsl" />
-    <None Include="res\shaders\text_vertex.glsl" />
-    <None Include="res\shaders\text_fragment.glsl" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\shader.hpp">
@@ -65,10 +66,28 @@
     <ClInclude Include="src\application.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\settings.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\textures\EmptyCell.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="res\textures\Grid.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\PauseButton.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\ArrowDown.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\ArrowUp.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="res\fonts\SourceCodePro-Regular.ttf" />
   </ItemGroup>
 </Project>

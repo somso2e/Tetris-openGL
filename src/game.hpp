@@ -4,14 +4,61 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include "shader.hpp"
 #include "renderer.hpp"
+#include "settings.hpp"
 
 
 class Game {
 public:
-	Game(GLFWwindow* window);
+	void Init();
 	void Update();
+
+	uint8_t Keys_[350]{};
+	bool KeysProcessed_[350]{};
+
 private:
-	enum class Color { Empty, Gray, Yellow, Green, Orange, Cyan, Magenta, Pink, Red, Blue, LightGray };
+	Renderer::Text DefaultText_;
+
+	enum class GameState {
+		MainMenu,
+		Active,
+		Pause,
+		GameOver,
+		CountDown,
+		HotkeyMenu,
+		EditingHotkey,
+		CatchedHotkey,
+		About,
+	};
+	GameState State_, PreviousState_;
+
+	// Sizes and compenents locations
+	static const unsigned int NUM_OF_CELLS_W = 10;
+	static const unsigned int NUM_OF_CELLS_H = 20;
+
+	static const unsigned int NEXT_TETROMINOES_COUNT = 5;
+
+	float CellSize_ = (float)windowHeight / NUM_OF_CELLS_H;
+
+	const glm::vec2 MainMapCoords_ = glm::vec2((windowWidth - CellSize_ * NUM_OF_CELLS_W) / 2, 0.0f);
+	const glm::vec2 HeldPieceCoords_ = glm::vec2((MainMapCoords_.x - 4 * CellSize_) / 2, (windowHeight - NEXT_TETROMINOES_COUNT * 3 * CellSize_) / 2);
+	const glm::vec2 ScoreWindowCoords_ = glm::vec2(HeldPieceCoords_.x, windowHeight - HeldPieceCoords_.y - 4 * CellSize_);
+	const glm::vec2 NextPieceCoords_ = glm::vec2(HeldPieceCoords_.x + MainMapCoords_.x + NUM_OF_CELLS_W * CellSize_, (windowHeight - NEXT_TETROMINOES_COUNT * 3 * CellSize_) / 2);
+
+	const float PauseButtonSize_ = (float)windowHeight / 8;
+	const glm::vec2 PauseButtonCoords_ = glm::vec2(windowWidth / 2, windowHeight / 2) - glm::vec2(PauseButtonSize_ / 2, PauseButtonSize_);
+
+	static const auto MAX_VISIBLE_SETTINGS_ = 12;
+	const glm::vec2 SettingsBoxSize_ = glm::vec2(windowHeight / MAX_VISIBLE_SETTINGS_ * 7, windowHeight / MAX_VISIBLE_SETTINGS_);
+	const glm::vec2 SettingsBoxCoords_ = glm::vec2(windowWidth / 2 - SettingsBoxSize_.x, 0.0f);
+
+	const float DefaultFontSize_ = windowHeight / 20.0f;
+	// Textures
+	GLuint EmptyCellTextureID_, GridTextureID_, PauseButtonTextureID_, ArrowUpTextureID_, ArrowDownTextureID_;
+
+
+	enum class Color {
+		Empty, White, Gray, Yellow, Green, Orange, Cyan, Magenta, Pink, Red, Blue, Gray1, Gray2, Gray3
+	};
 	enum TetrominoType { I, O, J, L, T, S, Z };
 
 	typedef glm::vec<2, int> point;
@@ -61,65 +108,75 @@ private:
 		   point(4, 1)},
 	};
 
-
-	static const unsigned int NUM_OF_CELLS_W = 10;
-	static const unsigned int NUM_OF_CELLS_H = 20;
-
-	const float CELL_SIZE = WINDOW_HEIGHT / NUM_OF_CELLS_H;
-
-	static const unsigned int NEXT_TETROMINOES_COUNT = 5;
-
-	const glm::vec2 MAIN_MAP_POS = glm::vec2((WINDOW_WIDTH - CELL_SIZE * NUM_OF_CELLS_W) / 2, 0.0f);
-	const glm::vec2 NEXT_PIECE_POS = glm::vec2(WINDOW_WIDTH * 3 / 4 + CELL_SIZE * (NUM_OF_CELLS_W / 4 - 2), (WINDOW_HEIGHT - NEXT_TETROMINOES_COUNT * 3 * CELL_SIZE) / 2);
-	const glm::vec2 HELD_PIECE_POS = glm::vec2((MAIN_MAP_POS.x - 4 * CELL_SIZE) / 2, (WINDOW_HEIGHT - NEXT_TETROMINOES_COUNT * 3 * CELL_SIZE) / 2);
-
-
-	GLuint EmptyCellTextureID_, GridTextureID_;
-
-	uint8_t Keys_[350]{ };
-	bool KeysProcessed_[350]{}; 
-	std::array<double, 350> KeysRepeatTimer_{};
-
-
-
+	//Maps
 	std::array<std::array<Color, NUM_OF_CELLS_H>, NUM_OF_CELLS_W> Map_{};
+	std::array<std::array<Color, NUM_OF_CELLS_H>, NUM_OF_CELLS_W> DisplayMap_;
+	std::array<std::array<Color, NEXT_TETROMINOES_COUNT * 3>, 4> NextPiecesMap_;
+	std::array<std::array<Color, 4>, 4> HeldPieceMap_;
+
+
 	Tetromino ActiveTetromino_{};
+	Tetromino PreviousTetromino_{};
+	std::array<Tetromino, NEXT_TETROMINOES_COUNT> NextQueue_{};
+
+	std::array<int, 7> GeneratedBag_;
+	unsigned int BagIndex_;
+
+
+	bool CanSwap_, FirstSwap_;
+	TetrominoType HeldTetrominoType_;
+
+	// Timers
 	double FallTimer_;
 	double LockDownTimer_;
 	double FallSpeed_{};
 	const double LOCK_DOWN_TIMEOUT = 0.5;
 
-	Tetromino Previous_{};
+	uint32_t Score_;
+	uint32_t Level_;
+	uint32_t TotalLinesCleared_;
 
-	std::array<Tetromino, NEXT_TETROMINOES_COUNT> NextQueue_{};
 
-	bool CanSwap_, FirstSwap_;
-	TetrominoType HeldTetrominoType_;
+	unsigned int CountDownInd_;
+	double CountDownTimer_;
 
-	std::array<int, 7> GeneratedBag_;
-	unsigned int BagIndex_;
+	int HighlightedSettingsInd_;
+	int InputCustomHotkey_;
+	int TopModuleind_;
+	bool InvalidCustomHotkey_;
+	bool MenuHighlighted_;
+	std::vector<Settings::Module> DisplayHotkeys_;
 
-	uint32_t Score;
-	uint32_t Level;
-	uint32_t TotalClearedLines_;
+	void InitMembers();
 
-	Renderer::Atlas TextAtlas_;
+	std::array<double, 350> KeysRepeatTimer_{};
+	bool IsKeyPressed(int key);
+	bool IsKeyHeld(int key);
+	void ProcessInput();
 
-	void Start();
 
+	template<std::size_t size_x, std::size_t size_y>
+	void DrawGrid(std::array < std::array < Color, size_y>, size_x>& grid, const glm::vec2 offset);
+	void Render();
+	void RenderScoreBox();
+	void RenderPause();
+	void RenderGameOver();
+	void RenderCountDown();
+
+	void RenderHotkeysMenu();
+	void DrawHighlightSelection(const glm::vec2& position, const glm::vec2& size, const float& thickness, const glm::vec4& color);
+
+	void RenderMainMenu();
+	void RenderAbout();
+
+	bool HasCollied(Tetromino tetromino);
+	Tetromino GenerateTetromino();
 	enum class Movement { Right, Left, Down, RotateR, RotateL, Rotate2 };
 	bool MoveTetromino(Tetromino& tetromino, Movement movement);
-
-	Tetromino GenerateTetromino();
-	bool HasCollied(Tetromino tetromino);
-	template<std::size_t size_x, std::size_t size_y>
-	void RenderGrid(std::array < std::array < Color, size_y>, size_x>& grid, const glm::vec2 offset);
-
 	void SwapTetromino();
-	void Restart();
-	void ProcessInput();
-	glm::vec4 GetColor(Color color);
-	void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
-	static void s_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
+	void Restart();
+
+	glm::vec4 GetColor(Color color);
+	const char* GetKeyName(int key);
 };

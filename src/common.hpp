@@ -10,5 +10,3 @@
 #include <vector>
 #include <array>
 
-const unsigned int WINDOW_HEIGHT = 960;
-const unsigned int WINDOW_WIDTH = 1200;

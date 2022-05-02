@@ -100,7 +100,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\;$(SolutionDir)Dependencies\glm-0.9.9.7\;$(SolutionDir)Dependencies\glad-4.6\include;$(SolutionDir)Tetris\src\;$(SolutionDir)Dependencies\glew-2.1.0\include\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\include\;$(SolutionDir)Dependencies\freetype\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\;$(SolutionDir)Dependencies\glm-0.9.9.7\;$(SolutionDir)Dependencies\glad-4.6\include;$(SolutionDir)Tetris\src\;$(SolutionDir)Dependencies\glew-2.1.0\include\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\include\;$(SolutionDir)Dependencies\freetype\include;$(SolutionDir)Dependencies\nlohmann</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -118,7 +118,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\;$(SolutionDir)Dependencies\glm-0.9.9.7\;$(SolutionDir)Dependencies\glad-4.6\include;$(SolutionDir)Tetris\src\;$(SolutionDir)Dependencies\glew-2.1.0\include\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\include\;$(SolutionDir)Dependencies\freetype\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\;$(SolutionDir)Dependencies\glm-0.9.9.7\;$(SolutionDir)Dependencies\glad-4.6\include;$(SolutionDir)Tetris\src\;$(SolutionDir)Dependencies\glew-2.1.0\include\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\include\;$(SolutionDir)Dependencies\freetype\include;$(SolutionDir)Dependencies\nlohmann</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -136,7 +136,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\;$(SolutionDir)Dependencies\glm-0.9.9.7\;$(SolutionDir)Dependencies\glad-4.6\include;$(SolutionDir)Tetris\src\;$(SolutionDir)Dependencies\glew-2.1.0\include\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\include\;$(SolutionDir)Dependencies\freetype\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\;$(SolutionDir)Dependencies\glm-0.9.9.7\;$(SolutionDir)Dependencies\glad-4.6\include;$(SolutionDir)Tetris\src\;$(SolutionDir)Dependencies\glew-2.1.0\include\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\include\;$(SolutionDir)Dependencies\freetype\include;$(SolutionDir)Dependencies\nlohmann</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -154,7 +154,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\;$(SolutionDir)Dependencies\glm-0.9.9.7\;$(SolutionDir)Dependencies\glad-4.6\include;$(SolutionDir)Tetris\src\;$(SolutionDir)Dependencies\glew-2.1.0\include\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\include\;$(SolutionDir)Dependencies\freetype\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\;$(SolutionDir)Dependencies\glm-0.9.9.7\;$(SolutionDir)Dependencies\glad-4.6\include;$(SolutionDir)Tetris\src\;$(SolutionDir)Dependencies\glew-2.1.0\include\;$(SolutionDir)Dependencies\glfw-3.3.6.bin.WIN64\include\;$(SolutionDir)Dependencies\freetype\include;$(SolutionDir)Dependencies\nlohmann</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -173,13 +173,12 @@
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\settings.cpp" />
     <ClCompile Include="src\shader.cpp" />
     <ClCompile Include="src\stb.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\fragment.glsl" />
-    <None Include="res\shaders\text_fragment.glsl" />
-    <None Include="res\shaders\text_vertex.glsl" />
     <None Include="res\shaders\vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
@@ -188,10 +187,18 @@
     <ClInclude Include="src\common.hpp" />
     <ClInclude Include="src\error.hpp" />
     <ClInclude Include="src\game.hpp" />
+    <ClInclude Include="src\settings.hpp" />
     <ClInclude Include="src\shader.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\textures\ArrowDown.png" />
+    <Image Include="res\textures\ArrowUp.png" />
     <Image Include="res\textures\EmptyCell.png" />
+    <Image Include="res\textures\Grid.png" />
+    <Image Include="res\textures\PauseButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="res\fonts\SourceCodePro-Regular.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
