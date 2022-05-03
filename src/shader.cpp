@@ -47,7 +47,7 @@ void Shader::SetUniform1iv(const char* name, GLsizei count, const GLint* value) 
 	auto loc = glGetUniformLocation(ID, name);
 	glUniform1iv(loc, count, value);
 
-}	
+}
 
 void Shader::Use() {
 	glUseProgram(ID);

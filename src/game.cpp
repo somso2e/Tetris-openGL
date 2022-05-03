@@ -1,7 +1,8 @@
 #include "game.hpp"
 
 void Game::Init() {
-	DefaultText_.Init("res/fonts/SourceCodePro-Regular.ttf", 256);
+	SmallText_.Init("res/fonts/SourceCodePro-Regular.ttf", 128);
+	BigText_.Init("res/fonts/SourceCodePro-Regular.ttf", 256);
 	Renderer::Init2D();
 
 	EmptyCellTextureID_ = Renderer::LoadTexture("res/textures/EmptyCell.png");
@@ -664,7 +665,7 @@ void Game::RenderScoreBox() {
 		GetColor(Color::White),
 		GridTextureID_);
 
-	DefaultText_.Write(
+	SmallText_.Write(
 		"SCORE:\n" + std::to_string(Score_) + "\nLEVEL:\n" + std::to_string(Level_),
 		ScoreWindowCoords_ + glm::vec2(CellSize_ * 2),
 		glm::vec2(DefaultFontSize_),
@@ -681,7 +682,7 @@ void Game::RenderPause() {
 		GetColor(Color::White),
 		PauseButtonTextureID_);
 
-	DefaultText_.Write(
+	SmallText_.Write(
 		std::string("PRESS ") + GetKeyName(Settings::Json["settings"]["hotkeys"]["PAUSE"]) + " TO RESUME",
 		glm::vec2(windowWidth / 2, windowHeight / 2 + PauseButtonSize_ * 0.4f),
 		glm::vec2(PauseButtonSize_ / 2.5f),
@@ -692,13 +693,13 @@ void Game::RenderPause() {
 
 
 void Game::RenderGameOver() {
-	DefaultText_.Write(
+	BigText_.Write(
 		"GAME OVER",
 		glm::vec2(windowWidth / 2, windowHeight / 2) - glm::vec2(0.0f, PauseButtonSize_ * 0.5f),
 		glm::vec2(PauseButtonSize_ * 1.5f),
 		GetColor(Color::White),
 		Renderer::Text::HorizontalAlignment::Center);
-	DefaultText_.Write(
+	SmallText_.Write(
 		std::string("PRESS ") + GetKeyName(Settings::Json["settings"]["hotkeys"]["RESTART"]) + " TO RESTART",
 		glm::vec2(windowWidth / 2, windowHeight / 2 + PauseButtonSize_ * 0.2f),
 		glm::vec2(PauseButtonSize_ / 2.5f),
@@ -711,7 +712,7 @@ void Game::RenderGameOver() {
 void Game::RenderCountDown() {
 	static const char* numbers[] = { "3","2","1" };
 	static float size = (float)windowHeight / 4;
-	DefaultText_.Write(
+	BigText_.Write(
 		numbers[CountDownInd_],
 		glm::vec2(windowWidth / 2, windowHeight / 2),
 		glm::vec2(size),
@@ -731,6 +732,7 @@ void Game::RenderHotkeysMenu() {
 
 	auto position = SettingsBoxCoords_;
 	static const float offset = 2.5f;
+	static const auto fontSize = glm::vec2(DefaultFontSize_ * 0.9);
 
 	auto max = std::min((int)Settings::Hotkeys.size(), TopModuleind_ + MAX_VISIBLE_SETTINGS_ + 1);
 
@@ -744,10 +746,10 @@ void Game::RenderHotkeysMenu() {
 			glm::vec4(0.16f, 0.16f, 0.16f, 1.0f),
 			Renderer::Data.WhiteTextureID
 		);
-		DefaultText_.Write(
+		SmallText_.Write(
 			name,
 			position + SettingsBoxSize_ / 2.0f,
-			glm::vec2(48.0f),
+			fontSize,
 			GetColor(Color::White),
 			Renderer::Text::HorizontalAlignment::Center,
 			Renderer::Text::VerticalAlignment::Center
@@ -759,10 +761,10 @@ void Game::RenderHotkeysMenu() {
 			GetColor(Color::Gray1),
 			Renderer::Data.WhiteTextureID
 		);
-		DefaultText_.Write(
+		SmallText_.Write(
 			GetKeyName(key),
 			position + glm::vec2(SettingsBoxSize_.x, 0.0f) + SettingsBoxSize_ / 2.0f,
-			glm::vec2(48.0f),
+			fontSize,
 			GetColor(Color::White),
 			Renderer::Text::HorizontalAlignment::Center,
 			Renderer::Text::VerticalAlignment::Center
@@ -777,10 +779,10 @@ void Game::RenderHotkeysMenu() {
 			GetColor(Color::Gray2),
 			Renderer::Data.WhiteTextureID
 		);
-		DefaultText_.Write(
+		SmallText_.Write(
 			"RESET TO DEFAULT",
 			position + glm::vec2(SettingsBoxSize_.x / 2.0f, 0.0f) + SettingsBoxSize_ / 2.0f,
-			glm::vec2(SettingsBoxSize_.y / 2.0f),
+			fontSize,
 			GetColor(Color::White),
 			Renderer::Text::HorizontalAlignment::Center,
 			Renderer::Text::VerticalAlignment::Center
@@ -794,10 +796,10 @@ void Game::RenderHotkeysMenu() {
 			GetColor(Color::Gray2),
 			Renderer::Data.WhiteTextureID
 		);
-		DefaultText_.Write(
+		SmallText_.Write(
 			"APPLY",
 			position + glm::vec2(SettingsBoxSize_.x / 2.0f, 0.0f) + SettingsBoxSize_ / 2.0f,
-			glm::vec2(SettingsBoxSize_.y / 2.0f),
+			fontSize,
 			GetColor(Color::White),
 			Renderer::Text::HorizontalAlignment::Center,
 			Renderer::Text::VerticalAlignment::Center
@@ -809,10 +811,10 @@ void Game::RenderHotkeysMenu() {
 		GetColor(Color::Gray1),
 		Renderer::Data.WhiteTextureID
 	);
-	DefaultText_.Write(
+	SmallText_.Write(
 		"MENU",
 		glm::vec2(SettingsBoxSize_.x / 3, SettingsBoxSize_.y) / 2.0f + glm::vec2(offset) * 4.0f,
-		glm::vec2(DefaultFontSize_),
+		fontSize,
 		GetColor(Color::White),
 		Renderer::Text::HorizontalAlignment::Center,
 		Renderer::Text::VerticalAlignment::Center
@@ -836,10 +838,10 @@ void Game::RenderHotkeysMenu() {
 		}
 
 		if (InvalidCustomHotkey_) {
-			DefaultText_.Write(
+			SmallText_.Write(
 				"INVALID!",
 				SettingsBoxCoords_ + glm::vec2(SettingsBoxSize_.x * 2.0f, SettingsBoxSize_.y * (HighlightedSettingsInd_ - TopModuleind_ + 0.5f)),
-				glm::vec2(DefaultFontSize_),
+				fontSize,
 				GetColor(Color::Red),
 				Renderer::Text::HorizontalAlignment::Left,
 				Renderer::Text::VerticalAlignment::Center
@@ -906,10 +908,10 @@ void Game::DrawHighlightSelection(const glm::vec2& position, const glm::vec2& si
 
 
 void Game::RenderMainMenu() {
-	DefaultText_.Write(
+	BigText_.Write(
 		"TETRIS",
-		glm::vec2(windowWidth / 2, windowHeight / 4),
-		glm::vec2(windowHeight / 4),
+		glm::vec2(windowWidth / 2.0f, windowHeight / 4.0f),
+		glm::vec2(windowHeight / 4.0f),
 		GetColor(Color::White),
 		Renderer::Text::HorizontalAlignment::Center,
 		Renderer::Text::VerticalAlignment::Center
@@ -934,7 +936,7 @@ void Game::RenderMainMenu() {
 			GetColor(Color::Gray2),
 			Renderer::Data.WhiteTextureID
 		);
-		DefaultText_.Write(
+		SmallText_.Write(
 			button,
 			pos,
 			glm::vec2(size.y / 2),
@@ -948,13 +950,13 @@ void Game::RenderMainMenu() {
 
 
 void Game::RenderAbout() {
-	DefaultText_.Write(
-		"Tetris clone made using OpenGL in C++ \n"
-		"Developed by Somso2e in the spring of 2022 as a passion project.\n"
-		"The full source code is available at\n"
+	SmallText_.Write(
+		"Tetris  clone  made  using  OpenGL  in  C++\n"
+		"Developed  by  Somso2e  in  the  spring  of  2022  as  a  passion  project.\n"
+		"The  full  source  code  is  available  at\n"
 		"https://github.com/somso2e/Tetris-openGL",
 		glm::vec2(windowWidth / 2, windowHeight / 4),
-		glm::vec2(DefaultFontSize_ / 1.5f),
+		glm::vec2(DefaultFontSize_ / 1.2f),
 		GetColor(Color::White),
 		Renderer::Text::HorizontalAlignment::Center,
 		Renderer::Text::VerticalAlignment::Top
@@ -977,7 +979,7 @@ void Game::RenderAbout() {
 		GetColor(Color::Gray3)
 	);
 
-	DefaultText_.Write(
+	SmallText_.Write(
 		"BACK",
 		glm::vec2(windowWidth / 2, windowHeight * 3 / 4),
 		glm::vec2(DefaultFontSize_),

@@ -16,7 +16,7 @@ public:
 	bool KeysProcessed_[350]{};
 
 private:
-	Renderer::Text DefaultText_;
+	Renderer::Text SmallText_, BigText_;
 
 	enum class GameState {
 		MainMenu,

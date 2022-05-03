@@ -6,8 +6,8 @@
 #include FT_FREETYPE_H  
 
 
-static unsigned int windowHeight = 1080;
-static unsigned int windowWidth = 1920;
+static unsigned int windowHeight = 720;
+static unsigned int windowWidth = 1280;
 
 
 namespace Renderer {
@@ -71,7 +71,7 @@ namespace Renderer {
 		};
 		void Write(const std::string& text, glm::vec2 position, glm::vec2 size, const glm::vec4& color, HorizontalAlignment horizontalAlignment = HorizontalAlignment::Left, VerticalAlignment verticalAlignment = VerticalAlignment::Top);
 	private:
-		static const int MAXWIDTH = 4096;
+		static const int MAXWIDTH = GL_MAX_TEXTURE_SIZE;
 		float TextureIndex_;
 
 		unsigned int TextureWidth_ = 0;
