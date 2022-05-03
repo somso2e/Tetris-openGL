@@ -64,7 +64,7 @@ void Application::Shutdown() {
 void Application::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
 	if (0 < key && key < 350) {
-		if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+		if (key == GLFW_KEY_F12 && action == GLFW_PRESS)
 			glfwSetWindowShouldClose(window, true);
 		Tetris.Keys_[key] = action;
 		if (action == GLFW_RELEASE) {

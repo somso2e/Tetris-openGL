@@ -403,14 +403,14 @@ void Game::ProcessInput() {
 					/* There are total of "number of hotkeys"+"RESET TO DEFAULT button"+"APPLY button"
 
 					*/
-					if (HighlightedSettingsInd_ < Settings::Hotkeys.size() + 1) {
+					if (HighlightedSettingsInd_ < (int)Settings::Hotkeys.size() + 1) {
 						HighlightedSettingsInd_++;
 					}
 				}
 				else if (IsKeyPressed(GLFW_KEY_ENTER)) {
 					//RESET TO DEFAULT was chosen
 					if (HighlightedSettingsInd_ == Settings::Hotkeys.size()) {
-						DisplayHotkeys_ = Settings::Default;
+						DisplayHotkeys_ = Settings::DefaultHotkeys;
 						State_ = GameState::HotkeyMenu;
 					} // APPLY was chosen
 					else if (HighlightedSettingsInd_ == Settings::Hotkeys.size() + 1) {
@@ -574,7 +574,12 @@ void Game::SwapTetromino() {
 	if (CanSwap_) {
 		if (FirstSwap_) {
 			HeldTetrominoType_ = ActiveTetromino_.type;
-			ActiveTetromino_ = GenerateTetromino();
+			ActiveTetromino_ = NextQueue_.at(0);
+			for (auto i = 0; i < 4; i++) {
+				NextQueue_.at(i) = NextQueue_.at(i + 1);
+			}
+			NextQueue_.at(4) = GenerateTetromino();
+
 			FirstSwap_ = false;
 		}
 		else {
@@ -589,8 +594,8 @@ void Game::SwapTetromino() {
 
 template<std::size_t size_x, std::size_t size_y>
 void Game::DrawGrid(std::array < std::array < Color, size_y>, size_x>& grid, const glm::vec2 offset) {
-	for (int j = 0; j < grid.at(0).size(); j++) {
-		for (int i = 0; i < grid.size(); i++) {
+	for (int j = 0; j < (int)grid.at(0).size(); j++) {
+		for (int i = 0; i < (int)grid.size(); i++) {
 			if (grid.at(i).at(j) == Color::Empty) {
 				Renderer::DrawQuad(
 					glm::vec2(i * CellSize_, j * CellSize_) + offset,
@@ -732,7 +737,7 @@ void Game::RenderHotkeysMenu() {
 
 	auto position = SettingsBoxCoords_;
 	static const float offset = 2.5f;
-	static const auto fontSize = glm::vec2(DefaultFontSize_ * 0.9);
+	static const auto fontSize = glm::vec2(DefaultFontSize_ * 0.9f);
 
 	auto max = std::min((int)Settings::Hotkeys.size(), TopModuleind_ + MAX_VISIBLE_SETTINGS_ + 1);
 
@@ -840,7 +845,7 @@ void Game::RenderHotkeysMenu() {
 		if (InvalidCustomHotkey_) {
 			SmallText_.Write(
 				"INVALID!",
-				SettingsBoxCoords_ + glm::vec2(SettingsBoxSize_.x * 2.0f, SettingsBoxSize_.y * (HighlightedSettingsInd_ - TopModuleind_ + 0.5f)),
+				SettingsBoxCoords_ + glm::vec2(SettingsBoxSize_.x * 2.0f, SettingsBoxSize_.y * (HighlightedSettingsInd_ - TopModuleind_ + 0.5f)) + glm::vec2(offset) * 4.0f,
 				fontSize,
 				GetColor(Color::Red),
 				Renderer::Text::HorizontalAlignment::Left,
@@ -858,7 +863,7 @@ void Game::RenderHotkeysMenu() {
 	}
 	if (TopModuleind_ != 0) {
 		Renderer::DrawQuad(
-			glm::vec2(windowWidth / 2 + SettingsBoxSize_.x + SettingsBoxSize_.y * 1.2f, windowHeight / 2 - SettingsBoxSize_.y),
+			glm::vec2(windowWidth / 2 - SettingsBoxSize_.x - SettingsBoxSize_.y * 2.0f, windowHeight / 2 - SettingsBoxSize_.y),
 			glm::vec2(SettingsBoxSize_.y),
 			GetColor(Color::Gray),
 			ArrowUpTextureID_
@@ -866,7 +871,7 @@ void Game::RenderHotkeysMenu() {
 	}
 	if (TopModuleind_ != Settings::Hotkeys.size() - MAX_VISIBLE_SETTINGS_ + 2) {
 		Renderer::DrawQuad(
-			glm::vec2(windowWidth / 2 + SettingsBoxSize_.x + SettingsBoxSize_.y * 1.2f, windowHeight / 2),
+			glm::vec2(windowWidth / 2 - SettingsBoxSize_.x - SettingsBoxSize_.y * 2.0f, windowHeight / 2),
 			glm::vec2(SettingsBoxSize_.y),
 			GetColor(Color::Gray),
 			ArrowDownTextureID_

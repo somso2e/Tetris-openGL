@@ -31,7 +31,7 @@ MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei 
 	std::cerr << "GL CALLBACK: [" << typeEnum << "] Source:" << sourceEnum << " Severity:" << severityEnum << " Message:" << message << std::endl;
 	if (severity != GL_DEBUG_SEVERITY_NOTIFICATION) {
 //#ifdef __MSC_VER_
-		//__debugbreak();
+		__debugbreak();
 //#endif	
 	}
 }

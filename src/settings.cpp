@@ -2,11 +2,11 @@
 
 //using namespace nlohmann;
 std::vector<Settings::Module> Settings::Hotkeys;
-std::vector<Settings::Module> Settings::Default;
+std::vector<Settings::Module> Settings::DefaultHotkeys;
 nlohmann::ordered_json Settings::Json;
 
 void Settings::init() {
-	Default.insert(Default.end(), {
+	DefaultHotkeys.insert(DefaultHotkeys.end(), {
 		{"MOVE RIGHT", GLFW_KEY_RIGHT},
 		{"MOVE LEFT", GLFW_KEY_LEFT},
 		{"SOFT DROP", GLFW_KEY_DOWN},
@@ -20,26 +20,29 @@ void Settings::init() {
 		{"OPEN SETTINGS", GLFW_KEY_GRAVE_ACCENT},
 		{"MAIN MENU",GLFW_KEY_M}
 		});
-	Hotkeys = Default;
+	Hotkeys = DefaultHotkeys;
 
-	std::ifstream file("settings.json");
 	std::filesystem::path path("settings.json");
 	bool validJSON = true;
 
 	if (std::filesystem::exists(path)) {
+		// Read json file from disk
+		std::ifstream file("settings.json");
 		Json = json::parse(file);
 		file.close();
 
 		auto& j = Json["settings"]["hotkeys"];
-		for (const auto& module : Hotkeys) {
-			if (j.find(module.Name) == j.end()) {
-				validJSON = false;
-				std::remove("settings.json");
-				break;
+		for (int i = 0; i < DefaultHotkeys.size(); i++) {
+			const auto& name = DefaultHotkeys.at(i).Name;
+			// Load from json
+			if (j.find(name) != j.end()) {
+				Hotkeys.at(i).Value = j.at(name);
 			}
 		}
 	}
-	if (!validJSON || !std::filesystem::exists(path)) {
+	else {
+		Hotkeys = DefaultHotkeys;
+
 		auto& j = Json["settings"]["hotkeys"];
 		for (const auto& module : Hotkeys) {
 			j[module.Name] = module.Value;

@@ -11,6 +11,6 @@ namespace Settings {
 		int Value;
 	};
 	extern std::vector<Module> Hotkeys;
-	extern std::vector<Module> Default;
+	extern std::vector<Module> DefaultHotkeys;
 	extern ordered_json Json;
 };
