@@ -4,9 +4,11 @@ Renderer::RendererData Renderer::Data;
 
 
 void Renderer::Init2D() {
+	// To avoid accidental reinitialization
 	if (Data.Initilized)
 		return;
 	Data.Initilized = true;
+
 	// Initilize the shader
 	Data.QuadShader.Compile("res/shaders/vertex.glsl", "res/shaders/fragment.glsl");
 	Data.QuadShader.Use();
@@ -104,8 +106,6 @@ void Renderer::EndBatch() {
 		0.0f, 1.0f);
 	Data.QuadShader.SetMatrix4("projection", projection);
 
-
-
 	GLsizeiptr size = (uint8_t*)Data.BufferPtr - (uint8_t*)Data.Buffer;
 	glBindBuffer(GL_ARRAY_BUFFER, Data.VBO);
 	glBufferSubData(GL_ARRAY_BUFFER, 0, size, Data.Buffer);
@@ -172,7 +172,7 @@ GLuint Renderer::LoadTexture(const char* imageFilePath) {
 
 	unsigned char* bytes = stbi_load(imageFilePath, &widthImg, &heightImg, &numColCh, 0);
 	if (!bytes) {
-		std::cerr << "[ERROR](Texture) Image File " << imageFilePath << " could not be loaded." << std::endl;
+		log("[ERROR](Texture) Image File " + std::string(imageFilePath) + " could not be loaded.");
 	}
 	glCreateTextures(GL_TEXTURE_2D, 1, &ID);
 	glBindTexture(GL_TEXTURE_2D, ID);
@@ -190,7 +190,7 @@ GLuint Renderer::LoadTexture(const char* imageFilePath) {
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, widthImg, heightImg, 0, GL_RGBA, GL_UNSIGNED_BYTE, bytes);
 	}
 	else {
-		std::cerr << "[ERROR](Texture) Invalid image type" << std::endl;
+		log("[ERROR](Texture) Invalid image type");
 	}
 
 	glGenerateMipmap(GL_TEXTURE_2D);
@@ -215,11 +215,11 @@ void Renderer::Text::Init(const char* fontFilePath, int height) {
 	}
 	FT_Library ft;
 	if (FT_Init_FreeType(&ft)) {
-		std::cerr << "[ERROR](Text) Could not init FreeType Library" << std::endl;
+		log("[ERROR](Text) Could not init FreeType Library");
 	}
 	FT_Face face;
 	if (FT_New_Face(ft, fontFilePath, 0, &face)) {
-		std::cerr << "[ERROR](Text) Failed to load font" << std::endl;
+		log("[ERROR](Text) Failed to load font");
 	}
 
 
@@ -233,15 +233,10 @@ void Renderer::Text::Init(const char* fontFilePath, int height) {
 	unsigned int rowHeight = 0;
 
 	memset(Characters_, 0, sizeof Characters_);
-	for (auto i = 32; i < 128; i++) {
-		if (FT_Load_Char(face, i, FT_LOAD_RENDER)) {
-			std::cerr << "Loading character" << (char)i << "failed!\n";
-			continue;
-		}
-	}
+
 	for (int i = 32; i < 128; i++) {
 		if (FT_Load_Char(face, i, FT_LOAD_RENDER)) {
-			std::cerr << "Loading character" << (char)i << "failed!\n";
+			log("[WARNING](Text)Loading character" + std::string(1, i) + " failed");
 			continue;
 		}
 		rowWidth += g->bitmap.width + 1;
@@ -279,7 +274,7 @@ void Renderer::Text::Init(const char* fontFilePath, int height) {
 
 	for (int i = 32; i < 128; i++) {
 		if (FT_Load_Char(face, i, FT_LOAD_RENDER)) {
-			std::cerr << "Loading character" << i << "failed!\n";
+			//log("Loading character" << i << "failed!")
 			continue;
 		}
 		if (offsetX + g->bitmap.width + 1 >= MAXWIDTH) {
@@ -318,7 +313,13 @@ void Renderer::Text::Init(const char* fontFilePath, int height) {
 
 }
 
-void Renderer::Text::Write(const std::string& text, glm::vec2 position, glm::vec2 size, const glm::vec4& color, HorizontalAlignment horizontalAlignment, VerticalAlignment verticalAlignment) {
+void Renderer::Text::Write(
+	const std::string& text,
+	glm::vec2 position,
+	glm::vec2 size,
+	const glm::vec4& color,
+	HorizontalAlignment horizontalAlignment,
+	VerticalAlignment verticalAlignment) {
 
 	size /= glm::vec2(Height_);
 
@@ -342,7 +343,7 @@ void Renderer::Text::Write(const std::string& text, glm::vec2 position, glm::vec
 	//maxH *= 1.2f;
 
 	//position.y -= maxTop * size.y / 2;
-	auto totalHeight = linesLength.size() * maxH *1.2;
+	auto totalHeight = linesLength.size() * maxH * 1.2;
 
 	if (verticalAlignment == VerticalAlignment::Center) {
 		position.y -= totalHeight * size.y / 2;

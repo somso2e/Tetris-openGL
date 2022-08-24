@@ -6,23 +6,31 @@ GLFWwindow* Application::window;
 
 int Application::Run() {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 #ifdef _DEBUG
 	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 #endif // _DEBUG
 
-	if (!glfwInit())
+	if (!glfwInit()) {
+		log("GLFW initialization failed");
 		return -1;
+	}
+	else {
+		log("GLFW initialized");
+	}
 
 	window = glfwCreateWindow(windowWidth, windowHeight, "Tetris", NULL, NULL);
 	glfwSetWindowAspectRatio(window, 16, 9);
 	glfwSetWindowSizeLimits(window, 1280, 720, GLFW_DONT_CARE, GLFW_DONT_CARE);
 
-
 	if (!window) {
 		glfwTerminate();
+		log("Window context creation failed");
 		return -1;
+	}
+	else {
+		log("Window created successfully");
 	}
 
 	glfwMakeContextCurrent(window);
@@ -37,8 +45,6 @@ int Application::Run() {
 
 #ifdef _DEBUG
 	glDebugMessageCallback(MessageCallback, 0);
-	glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DEBUG_SEVERITY_LOW, 0, NULL, GL_FALSE);
-	glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DEBUG_SEVERITY_NOTIFICATION, 0, NULL, GL_FALSE);
 #endif // _DEBUG
 
 
@@ -46,7 +52,7 @@ int Application::Run() {
 
 	glfwSetKeyCallback(window, key_callback);
 	glfwSetWindowSizeCallback(window, window_size_callback);
-
+	glfwSwapInterval(1);
 	while (!glfwWindowShouldClose(window)) {
 		Tetris.Update();
 		glfwSwapBuffers(window);

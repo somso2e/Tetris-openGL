@@ -1,11 +1,10 @@
 #pragma once
 
 #include <random>
+#include <algorithm>
 #include <glm/gtc/matrix_transform.hpp>
-#include "shader.hpp"
-#include "renderer.hpp"
+#include "engine/renderer.hpp"
 #include "settings.hpp"
-
 
 class Game {
 public:
@@ -15,22 +14,26 @@ public:
 	uint8_t Keys_[350]{};
 	bool KeysProcessed_[350]{};
 
-private:
+	//private:
 	Renderer::Text SmallText_, BigText_;
 
 	enum class GameState {
 		MainMenu,
+		GameModeMenu,
 		Active,
 		Pause,
 		GameOver,
+		YouWon,
 		CountDown,
 		HotkeyMenu,
 		EditingHotkey,
 		CatchedHotkey,
 		About,
+		HighScoreMenu,
 	};
 	GameState State_, PreviousState_;
-
+	enum class GameMode { Classic, FourtyLines };
+	GameMode GameMode_;
 	// Sizes and compenents locations
 	static const unsigned int NUM_OF_CELLS_W = 10;
 	static const unsigned int NUM_OF_CELLS_H = 20;
@@ -132,6 +135,8 @@ private:
 	double FallSpeed_{};
 	const double LOCK_DOWN_TIMEOUT = 0.5;
 
+	double ElapsedTime_;
+
 	uint32_t Score_;
 	uint32_t Level_;
 	uint32_t TotalLinesCleared_;
@@ -150,24 +155,28 @@ private:
 	void InitMembers();
 
 	std::array<double, 350> KeysRepeatTimer_{};
+public:
 	bool IsKeyPressed(int key);
 	bool IsKeyHeld(int key);
 	void ProcessInput();
-
+	std::string GetTime(double elapsedTime);
 
 	template<std::size_t size_x, std::size_t size_y>
 	void DrawGrid(std::array < std::array < Color, size_y>, size_x>& grid, const glm::vec2 offset);
 	void Render();
 	void RenderScoreBox();
 	void RenderPause();
+	void RenderYouWon();
 	void RenderGameOver();
 	void RenderCountDown();
 
 	void RenderHotkeysMenu();
 	void DrawHighlightSelection(const glm::vec2& position, const glm::vec2& size, const float& thickness, const glm::vec4& color);
 
+	void RenderGameModeSelect();
 	void RenderMainMenu();
 	void RenderAbout();
+	void RenderRecordsMenu();
 
 	bool HasCollied(Tetromino tetromino);
 	Tetromino GenerateTetromino();
@@ -177,6 +186,41 @@ private:
 
 	void Restart();
 
+	void UpdateHighScore();
 	glm::vec4 GetColor(Color color);
-	const char* GetKeyName(int key);
+	const char* GetKeyName(int key);;
 };
+/*
+	Menu MainMenu_ = Menu(&MainMenu_, std::bind(&Game::Render, this), []() {});
+	MainMenu_.AddSubMenu("PLAY", std::bind(&Game::RenderGameModeSelect, this));
+	MainMenu_.AddSubMenu("SETTINGS", std::bind(&Game::RenderHotkeysMenu, this), [&]() {
+		SelectedMenu_ = &MainMenu_.Children_.at("SETTINGS");
+		});
+	MainMenu_.AddSubMenu("ABOUT", std::bind(&Game::RenderAbout, this));
+	auto& settings_M = MainMenu_.Children_.at("SETTINGS");
+	for (const auto& hotkey : Settings::Hotkeys) {
+		settings_M->AddItem(hotkey.Name, [&]() {State_ == GameState::EditingHotkey; });
+	}
+	settings_M->AddItem("RESET TO DEFAULT", [&]() {DisplayHotkeys_ = Settings::DefaultHotkeys; });
+	auto& about_M = MainMenu_.Children_.at("ABOUT");
+	about_M->AddItem("BACK", [&]() {SelectedMenu_ = &MainMenu_; })
+	
+class Menu : public Game {
+public:
+	Menu(Menu* parent, std::function<void()>(render), std::function<void()>(action)) :
+		Render(render), Action(action) {};
+
+	std::function<void()>(Render);
+	std::function<void()>(Action);
+	std::map<std::string, Menu*> Children_;
+
+	void AddSubMenu(const char* item, std::function<void()>(render), std::function<void()>(action) = []() {}) {
+		Menu* child = new Menu(this, action, render);
+		Children_[item] = child;
+	}
+	void AddItem(const char* item, std::function<void()>(action)) {
+		Menu* child = new Menu(this, action, []() {});
+		Children_[item] = child;
+	}
+}; 
+*/

@@ -1,0 +1,18 @@
+2022-08-24 14:22:00	GLFW initialized
+2022-08-24 14:22:01	Window created successfully
+2022-08-24 14:22:28	GLFW initialized
+2022-08-24 14:22:28	Window created successfully
+2022-08-24 14:22:58	GLFW initialized
+2022-08-24 14:22:58	Window created successfully
+2022-08-24 14:24:10	GLFW initialized
+2022-08-24 14:24:11	Window created successfully
+2022-08-24 14:25:30	GLFW initialized
+2022-08-24 14:25:30	Window created successfully
+2022-08-24 14:27:04	GLFW initialized
+2022-08-24 14:27:04	Window created successfully
+2022-08-24 14:27:37	GLFW initialized
+2022-08-24 14:27:38	Window created successfully
+2022-08-24 14:57:52	GLFW initialized
+2022-08-24 14:57:53	Window created successfully
+2022-08-24 15:01:45	GLFW initialized
+2022-08-24 15:01:45	Window created successfully

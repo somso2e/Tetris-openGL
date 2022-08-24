@@ -15,31 +15,37 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp">
+    <ClCompile Include="src\game\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\shader.cpp">
+    <ClCompile Include="src\engine\shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\error.cpp">
+    <ClCompile Include="src\engine\error.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\glad.c">
+    <ClCompile Include="src\engine\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\game.cpp">
+    <ClCompile Include="src\game\game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\stb.cpp">
+    <ClCompile Include="src\engine\stb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\renderer.cpp">
+    <ClCompile Include="src\engine\renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\application.cpp">
+    <ClCompile Include="src\game\application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\settings.cpp">
+    <ClCompile Include="src\game\settings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\prcoessInput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\gameRender.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -48,25 +54,28 @@
     <None Include="res\shaders\vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\shader.hpp">
+    <ClInclude Include="src\engine\shader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\common.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\error.hpp">
+    <ClInclude Include="src\engine\error.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\game.hpp">
+    <ClInclude Include="src\game\game.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\renderer.hpp">
+    <ClInclude Include="src\engine\renderer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\application.hpp">
+    <ClInclude Include="src\game\application.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\settings.hpp">
+    <ClInclude Include="src\game\settings.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\logging.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

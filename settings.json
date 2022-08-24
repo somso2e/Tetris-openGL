@@ -1,19 +1,22 @@
 {
 	"settings": {
 		"hotkeys": {
-			"HARD DROP": 32,
-			"MAIN MENU": 77,
-			"MOVE LEFT": 263,
 			"MOVE RIGHT": 262,
-			"OPEN SETTINGS": 96,
-			"OPEN SETTINGS2": 96,
+			"MOVE LEFT": 263,
+			"SOFT DROP": 264,
+			"HARD DROP": 32,
+			"ROTATE R": 265,
+			"ROTATE L": 90,
+			"ROTATE 180": 65,
+			"SWAP": 67,
 			"PAUSE": 80,
 			"RESTART": 82,
-			"ROTATE 180": 65,
-			"ROTATE L": 90,
-			"ROTATE R": 265,
-			"SOFT DROP": 264,
-			"SWAP": 67
+			"OPEN SETTINGS": 96,
+			"MAIN MENU": 77
 		}
+	},
+	"high scores": {
+		"classic": [],
+		"fourty lines": []
 	}
 }

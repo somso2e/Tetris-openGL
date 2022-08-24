@@ -69,7 +69,13 @@ namespace Renderer {
 			Center,
 			Bottom,
 		};
-		void Write(const std::string& text, glm::vec2 position, glm::vec2 size, const glm::vec4& color, HorizontalAlignment horizontalAlignment = HorizontalAlignment::Left, VerticalAlignment verticalAlignment = VerticalAlignment::Top);
+		void Write(
+			const std::string& text,
+			glm::vec2 position,
+			glm::vec2 size,
+			const glm::vec4& color,
+			HorizontalAlignment horizontalAlignment = HorizontalAlignment::Left,
+			VerticalAlignment verticalAlignment = VerticalAlignment::Top);
 	private:
 		static const int MAXWIDTH = GL_MAX_TEXTURE_SIZE;
 		float TextureIndex_;

@@ -28,11 +28,12 @@ MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei 
 	case GL_DEBUG_SEVERITY_LOW:			 severityEnum = "LOW"; break;
 	case GL_DEBUG_SEVERITY_NOTIFICATION: severityEnum = "NOTIFICATION"; break;
 	}
-	std::cerr << "GL CALLBACK: [" << typeEnum << "] Source:" << sourceEnum << " Severity:" << severityEnum << " Message:" << message << std::endl;
+	auto str = "GL CALLBACK: [" + typeEnum + "] Source:" + sourceEnum + " Severity:" + severityEnum + " Message:" + message;
+	log(str);
 	if (severity != GL_DEBUG_SEVERITY_NOTIFICATION) {
-//#ifdef __MSC_VER_
-		__debugbreak();
-//#endif	
+		//#ifdef __MSC_VER_
+				//__debugbreak();
+		//#endif	
 	}
 }
 
@@ -54,7 +55,8 @@ const char* glGetErrorString(GLenum error) {
 void _glCheckErrors(const char* filename, int line) {
 	GLenum err;
 	while ((err = glGetError()) != GL_NO_ERROR) {
-		std::cout << "[ERORR] (" << glGetErrorString(err) << "): " << " " << filename << ":" << line << "\n" << std::endl;
+		auto str = "[ERORR] (" + std::string(glGetErrorString(err)) + "): " + filename + ":" + std::to_string(line);
+		log(str);
 	}
 
 }

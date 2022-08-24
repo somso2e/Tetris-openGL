@@ -6,6 +6,7 @@
 namespace Settings {
 	using namespace nlohmann;
 	void init();
+	void save();
 	struct Module {
 		const char* Name;
 		int Value;
@@ -13,4 +14,5 @@ namespace Settings {
 	extern std::vector<Module> Hotkeys;
 	extern std::vector<Module> DefaultHotkeys;
 	extern ordered_json Json;
+	const int NUM_OF_TOP_SCORES = 10;
 };

@@ -39,15 +39,23 @@ void Settings::init() {
 				Hotkeys.at(i).Value = j.at(name);
 			}
 		}
+
 	}
 	else {
 		Hotkeys = DefaultHotkeys;
 
 		auto& j = Json["settings"]["hotkeys"];
-		for (const auto& module : Hotkeys) {
-			j[module.Name] = module.Value;
+		for (const auto& h : Hotkeys) {
+			j[h.Name] = h.Value;
 		}
-		std::ofstream file("settings.json");
-		file << Json.dump(1, '\t');
+		auto& r = Json["high scores"];
+		r["classic"] = json::array();
+		r["fourty lines"] = json::array();
+		save();
 	}
+}
+void Settings::save() {
+	std::ofstream file("settings.json");
+	file << Json.dump(1, '\t');
+	file.close();
 }

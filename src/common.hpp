@@ -4,9 +4,9 @@
 #include <glm/glm.hpp>
 
 #include <iostream>
-#include <fstream>
 #include <string>
 #include <sstream>
 #include <vector>
 #include <array>
 
+#include "logging.hpp"

@@ -27,11 +27,11 @@ unsigned int Shader::CompileSourceFile(unsigned int type, const char* source) {
 		glGetShaderiv(ID, GL_INFO_LOG_LENGTH, &length);
 		char* message = (char*)_malloca(length * sizeof(char));
 		glGetShaderInfoLog(ID, length, &length, message);
-		std::cout << "[ERROR](Shader)Failed to compile " << (type == GL_VERTEX_SHADER ? "vertex" : "fragment") << std::endl;
-		std::cout << message << std::endl;
+		log("[ERROR](Shader)Failed to compile " + std::string(type == GL_VERTEX_SHADER ? "vertex " : "fragment ") + message);
 		glDeleteShader(ID);
 		return 0;
 	}
+	
 	return ID;
 }
 
@@ -61,9 +61,10 @@ void Shader::Delete() {
 std::string Shader::GetShaderFileContent(const std::string& filepath) {
 	std::ifstream file(filepath);
 	if (!file.good()) {
-		std::cout << "[ERROR](Shader) Shader File " << filepath << " does not exist." << std::endl;
+		log(std::string("[ERROR](Shader) Shader File ") + filepath + " does not exist.");
 	}
 	std::stringstream buffer;
 	buffer << file.rdbuf();
+	file.close();
 	return buffer.str();
 }

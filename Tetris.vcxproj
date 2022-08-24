@@ -72,26 +72,26 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\$(ProjectName)\intermediate\$(Platform)\$(Configuration)\</IntDir>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\$(ProjectName)\intermediate\$(Platform)\$(Configuration)\</IntDir>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\$(ProjectName)\intermediate\$(Platform)\$(Configuration)\</IntDir>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\$(ProjectName)\intermediate\$(Platform)\$(Configuration)\</IntDir>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -183,28 +183,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\application.cpp" />
-    <ClCompile Include="src\renderer.cpp" />
-    <ClCompile Include="src\error.cpp" />
-    <ClCompile Include="src\game.cpp" />
-    <ClCompile Include="src\glad.c" />
-    <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\settings.cpp" />
-    <ClCompile Include="src\shader.cpp" />
-    <ClCompile Include="src\stb.cpp" />
+    <ClCompile Include="src\game\application.cpp" />
+    <ClCompile Include="src\game\gameRender.cpp" />
+    <ClCompile Include="src\game\prcoessInput.cpp" />
+    <ClCompile Include="src\engine\renderer.cpp" />
+    <ClCompile Include="src\engine\error.cpp" />
+    <ClCompile Include="src\game\game.cpp" />
+    <ClCompile Include="src\engine\glad.c" />
+    <ClCompile Include="src\game\main.cpp" />
+    <ClCompile Include="src\game\settings.cpp" />
+    <ClCompile Include="src\engine\shader.cpp" />
+    <ClCompile Include="src\engine\stb.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\fragment.glsl" />
     <None Include="res\shaders\vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\application.hpp" />
-    <ClInclude Include="src\renderer.hpp" />
+    <ClInclude Include="src\game\application.hpp" />
+    <ClInclude Include="src\engine\renderer.hpp" />
     <ClInclude Include="src\common.hpp" />
-    <ClInclude Include="src\error.hpp" />
-    <ClInclude Include="src\game.hpp" />
-    <ClInclude Include="src\settings.hpp" />
-    <ClInclude Include="src\shader.hpp" />
+    <ClInclude Include="src\engine\error.hpp" />
+    <ClInclude Include="src\game\game.hpp" />
+    <ClInclude Include="src\game\settings.hpp" />
+    <ClInclude Include="src\engine\shader.hpp" />
+    <ClInclude Include="src\logging.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\textures\ArrowDown.png" />
