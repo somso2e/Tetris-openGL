@@ -215,6 +215,7 @@ void Game::Update() {
 			}
 		}
 	}
+	//else if(State_ GameState::mainme
 	if (State_ == GameState::CatchedHotkey) {
 		// check if the input hotkey hasnt been used before 
 		InvalidCustomHotkey_ = false;
@@ -388,7 +389,6 @@ std::string Game::GetTime(double elapsedTime) {
 	sprintf_s(str, "%02d:%02d:%03d", min, sec, millis);
 	return std::string(str);
 }
-
 
 
 void Game::UpdateHighScore() {

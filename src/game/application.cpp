@@ -55,6 +55,7 @@ int Application::Run() {
 	glfwSwapInterval(1);
 	while (!glfwWindowShouldClose(window)) {
 		Tetris.Update();
+		
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}

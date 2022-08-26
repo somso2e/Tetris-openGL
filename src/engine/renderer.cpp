@@ -326,23 +326,18 @@ void Renderer::Text::Write(
 	float maxTop = 0.0f, maxH = 0.0f;
 	// Get the length of each line seperated by a "\n" for horizontal alignment
 	std::vector<float> linesLength = { 0.0f };
-	// No need if its left aligned
-	if (horizontalAlignment == HorizontalAlignment::Center ||
-		horizontalAlignment == HorizontalAlignment::Right) {
-		for (const auto& i : text) {
-			if (i == '\n') {
-				linesLength.push_back(0.0f);
-				continue;
-			}
-			auto& c = Characters_[i];
-			maxTop = std::max(maxTop, c.bitmapT);
-			maxH = std::max(maxH, c.bitmapH);
-			linesLength.at(linesLength.size() - 1) += c.advance.x * size.x;
-		}
-	}
-	//maxH *= 1.2f;
 
-	//position.y -= maxTop * size.y / 2;
+	for (const auto& i : text) {
+		if (i == '\n') {
+			linesLength.push_back(0.0f);
+			continue;
+		}
+		auto& c = Characters_[i];
+		maxTop = std::max(maxTop, c.bitmapT);
+		maxH = std::max(maxH, c.bitmapH);
+		linesLength.at(linesLength.size() - 1) += c.advance.x * size.x;
+	}
+
 	auto totalHeight = linesLength.size() * maxH * 1.2;
 
 	if (verticalAlignment == VerticalAlignment::Center) {

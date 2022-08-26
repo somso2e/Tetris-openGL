@@ -304,6 +304,7 @@ void Game::ProcessInput() {
 			State_ = GameState::HotkeyMenu;
 		}
 		else if (IsKeyPressed(hotkeys.at("MAIN MENU"))) {
+			Restart();
 			State_ = GameState::MainMenu;
 			HighlightedSettingsInd_ = 0;
 		}
@@ -318,6 +319,7 @@ void Game::ProcessInput() {
 			State_ = GameState::HotkeyMenu;
 		}
 		else if (IsKeyPressed(hotkeys.at("MAIN MENU"))) {
+			Restart();
 			State_ = GameState::MainMenu;
 			HighlightedSettingsInd_ = 0;
 		}
