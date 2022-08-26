@@ -215,12 +215,12 @@ void Game::Update() {
 			}
 		}
 	}
-	//else if(State_ GameState::mainme
+
 	if (State_ == GameState::CatchedHotkey) {
 		// check if the input hotkey hasnt been used before 
 		InvalidCustomHotkey_ = false;
 		if (InputCustomHotkey_ != DisplayHotkeys_.at(HighlightedSettingsInd_).Value) {
-			for (const auto& hotkey : Settings::Hotkeys) {
+			for (const auto& hotkey : DisplayHotkeys_) {
 				if (hotkey.Value == InputCustomHotkey_) {
 					InvalidCustomHotkey_ = true;
 					State_ = GameState::EditingHotkey;
