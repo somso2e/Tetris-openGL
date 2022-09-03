@@ -6,6 +6,7 @@
 namespace Application {
 	int Run();
 	void Shutdown();
+	void SetIcon(const char* iconFilePath);
 
 	void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 	void window_size_callback(GLFWwindow* window, int width, int height);

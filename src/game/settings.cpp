@@ -51,6 +51,9 @@ void Settings::init() {
 		auto& r = Json["high scores"];
 		r["classic"] = json::array();
 		r["fourty lines"] = json::array();
+
+		Json["settings"]["record data"] = true;
+		
 		save();
 	}
 }

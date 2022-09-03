@@ -25,6 +25,7 @@ void Game::InitMembers() {
 	auto timeNow = glfwGetTime();
 
 	Map_ = { {Color::Empty} };
+	DisplayMap_ = { {Color::Empty} };
 
 	KeysRepeatTimer_.fill(timeNow);
 
@@ -63,12 +64,16 @@ void Game::InitMembers() {
 	DisplayHotkeys_ = Settings::Hotkeys;
 	MenuHighlighted_ = false;
 
+	PreviousBoolDisplayMap_ = { {false} };
+	BoolDisplayMap_ = { {false} };
+
 	// Generate 5 Tetrominos and put them in the next queue
 	for (auto& tetromino : NextQueue_) {
 		tetromino = GenerateTetromino();
 	}
 	ActiveTetromino_ = GenerateTetromino();
 	PreviousTetromino_ = ActiveTetromino_;
+
 }
 
 
@@ -112,9 +117,13 @@ void Game::Update() {
 						Map_.at(i).at(j2) = Map_.at(i).at(j2 - 1);
 					}
 				}
+				for (int i = 0; i < NUM_OF_CELLS_W; i++) {
+					Map_.at(i).at(0) = Color::Empty;
+				}
+
 			}
 		}
-
+		//Map_.at(0).at(1) = Color::Blue;
 		// Calculate score and level
 		TotalLinesCleared_ += linesCleared;
 		Level_ = (uint32_t)TotalLinesCleared_ / 10 + 1;
@@ -138,15 +147,18 @@ void Game::Update() {
 				State_ = GameState::GameOver;
 			}
 		}
+		bool shouldSave = false;
+		bool done = false;
 		// If previous tetromino was placed generate a new one
 		if (ActiveTetromino_.placed) {
+			shouldSave = true;
+			FallTimer_ = timeNow;
 			CanSwap_ = true;
 			// Permenantly append the active Tetromino to the map
 			for (auto const& piece : ActiveTetromino_.blocks) {
 				point blocks = piece + ActiveTetromino_.pos;
 				Map_.at(blocks.x).at(blocks.y) = ActiveTetromino_.color;
 			}
-
 			// shift next queue by one
 			ActiveTetromino_ = NextQueue_.at(0);
 			for (auto i = 0; i < 4; i++) {
@@ -154,12 +166,27 @@ void Game::Update() {
 			}
 			NextQueue_.at(4) = GenerateTetromino();
 
+
 			// If the new tetromino has collied, game is over
 			if (HasCollied(ActiveTetromino_)) {
 				State_ = GameState::GameOver;
 				UpdateHighScore();
+				done = true;
 			}
 		}
+		for (auto y = 0; y < NUM_OF_CELLS_H; y++) {
+			for (auto x = 0; x < NUM_OF_CELLS_W; x++) {
+				BoolDisplayMap_.at(x).at(y) = (Map_.at(x).at(y) != Color::Empty);
+			}
+		}
+
+		// save to buffer replay if the active tetromino was placed
+		if (shouldSave && Settings::Json.at("settings").at("record data")) {
+			SaveToMemoryReplay(BoolDisplayMap_, PreviousBoolDisplayMap_, done);
+		}
+
+		PreviousBoolDisplayMap_ = BoolDisplayMap_;
+
 
 		// Append the ghost of the active tetromino to display map
 		DisplayMap_ = Map_;
@@ -197,6 +224,8 @@ void Game::Update() {
 			if (CountDownInd_ == 2) {
 				CountDownInd_ = 0;
 				State_ = GameState::Active;
+				FallTimer_ = timeNow;
+				LockDownTimer_ = timeNow;
 			}
 			else {
 				CountDownInd_++;

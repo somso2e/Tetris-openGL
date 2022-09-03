@@ -222,7 +222,7 @@ void Game::ProcessInput() {
 			}
 		}
 		else if (IsKeyPressed(GLFW_KEY_DOWN)) {
-			// total of 3 buttons on the main menu
+			// total of 3 buttons on the game mode menu
 			if (HighlightedSettingsInd_ < 2) {
 				HighlightedSettingsInd_++;
 			}
@@ -287,6 +287,7 @@ void Game::ProcessInput() {
 		}
 
 		if (IsKeyPressed(hotkeys.at("MAIN MENU"))) {
+			Restart();
 			State_ = GameState::MainMenu;
 			HighlightedSettingsInd_ = 0;
 		}

@@ -117,6 +117,24 @@ public:
 	std::array<std::array<Color, NEXT_TETROMINOES_COUNT * 3>, 4> NextPiecesMap_;
 	std::array<std::array<Color, 4>, 4> HeldPieceMap_;
 
+	typedef std::array<std::array<bool, NUM_OF_CELLS_H>, NUM_OF_CELLS_W> bool_map;
+	bool_map BoolDisplayMap_, PreviousBoolDisplayMap_;
+
+	struct reward {
+		std::array<uint32_t, NUM_OF_CELLS_W> heights;
+		uint32_t score;
+		uint32_t bubbles;
+		uint32_t bumpiness;
+		uint32_t lines;
+	};
+	struct buffer {
+		bool_map state, nextState;
+		uint32_t done;
+		uint32_t action;
+		reward reward;
+	};
+	std::vector<buffer> Buffer_;
+	static const int MAX_BUFFER_SIZE = 1000;
 
 	Tetromino ActiveTetromino_{};
 	Tetromino PreviousTetromino_{};
@@ -184,43 +202,13 @@ public:
 	bool MoveTetromino(Tetromino& tetromino, Movement movement);
 	void SwapTetromino();
 
+	void SaveToMemoryReplay(bool_map state, bool_map previousState, uint32_t done);
+	reward CalculateReward();
+
 	void Restart();
 
 	void UpdateHighScore();
 	glm::vec4 GetColor(Color color);
 	const char* GetKeyName(int key);;
+
 };
-/*
-	Menu MainMenu_ = Menu(&MainMenu_, std::bind(&Game::Render, this), []() {});
-	MainMenu_.AddSubMenu("PLAY", std::bind(&Game::RenderGameModeSelect, this));
-	MainMenu_.AddSubMenu("SETTINGS", std::bind(&Game::RenderHotkeysMenu, this), [&]() {
-		SelectedMenu_ = &MainMenu_.Children_.at("SETTINGS");
-		});
-	MainMenu_.AddSubMenu("ABOUT", std::bind(&Game::RenderAbout, this));
-	auto& settings_M = MainMenu_.Children_.at("SETTINGS");
-	for (const auto& hotkey : Settings::Hotkeys) {
-		settings_M->AddItem(hotkey.Name, [&]() {State_ == GameState::EditingHotkey; });
-	}
-	settings_M->AddItem("RESET TO DEFAULT", [&]() {DisplayHotkeys_ = Settings::DefaultHotkeys; });
-	auto& about_M = MainMenu_.Children_.at("ABOUT");
-	about_M->AddItem("BACK", [&]() {SelectedMenu_ = &MainMenu_; })
-	
-class Menu : public Game {
-public:
-	Menu(Menu* parent, std::function<void()>(render), std::function<void()>(action)) :
-		Render(render), Action(action) {};
-
-	std::function<void()>(Render);
-	std::function<void()>(Action);
-	std::map<std::string, Menu*> Children_;
-
-	void AddSubMenu(const char* item, std::function<void()>(render), std::function<void()>(action) = []() {}) {
-		Menu* child = new Menu(this, action, render);
-		Children_[item] = child;
-	}
-	void AddItem(const char* item, std::function<void()>(action)) {
-		Menu* child = new Menu(this, action, []() {});
-		Children_[item] = child;
-	}
-}; 
-*/

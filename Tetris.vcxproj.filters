@@ -48,6 +48,9 @@
     <ClCompile Include="src\game\gameRender.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\game\memoryReplay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\fragment.glsl" />
@@ -78,6 +81,9 @@
     <ClInclude Include="src\logging.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\textures\EmptyCell.png">
@@ -95,8 +101,19 @@
     <Image Include="res\textures\ArrowUp.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="..\Photoshop files\icon.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Photoshop files\favicon (3).ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="res\fonts\SourceCodePro-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Tetris.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

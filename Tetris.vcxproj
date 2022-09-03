@@ -184,6 +184,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\game\application.cpp" />
+    <ClCompile Include="src\game\memoryReplay.cpp" />
     <ClCompile Include="src\game\gameRender.cpp" />
     <ClCompile Include="src\game\prcoessInput.cpp" />
     <ClCompile Include="src\engine\renderer.cpp" />
@@ -200,6 +201,7 @@
     <None Include="res\shaders\vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="src\game\application.hpp" />
     <ClInclude Include="src\engine\renderer.hpp" />
     <ClInclude Include="src\common.hpp" />
@@ -210,6 +212,8 @@
     <ClInclude Include="src\logging.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\Photoshop files\favicon (3).ico" />
+    <Image Include="..\Photoshop files\icon.ico" />
     <Image Include="res\textures\ArrowDown.png" />
     <Image Include="res\textures\ArrowUp.png" />
     <Image Include="res\textures\EmptyCell.png" />
@@ -218,6 +222,9 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="res\fonts\SourceCodePro-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Tetris.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

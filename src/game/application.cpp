@@ -21,6 +21,9 @@ int Application::Run() {
 	}
 
 	window = glfwCreateWindow(windowWidth, windowHeight, "Tetris", NULL, NULL);
+
+	SetIcon("res/textures/icon2.png");
+
 	glfwSetWindowAspectRatio(window, 16, 9);
 	glfwSetWindowSizeLimits(window, 1280, 720, GLFW_DONT_CARE, GLFW_DONT_CARE);
 
@@ -55,7 +58,7 @@ int Application::Run() {
 	glfwSwapInterval(1);
 	while (!glfwWindowShouldClose(window)) {
 		Tetris.Update();
-		
+
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
@@ -67,6 +70,17 @@ void Application::Shutdown() {
 	glfwTerminate();
 }
 
+void Application::SetIcon(const char* iconFilePath) {
+	GLFWimage iconImage[1];
+
+	iconImage[0].pixels = stbi_load(iconFilePath, &iconImage->width, &iconImage->height, 0, 4);
+	if (!iconImage[0].pixels) {
+		log("[ERROR](Texture) Icon file " + std::string(iconFilePath) + " could not be loaded.");
+	}
+	glfwSetWindowIcon(window, 1, iconImage);
+	stbi_image_free(iconImage[0].pixels);
+
+}
 
 void Application::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
