@@ -211,12 +211,12 @@ void Game::Update() {
 		}
 		for (auto y = 0; y < NUM_OF_CELLS_H; y++) {
 			for (auto x = 0; x < NUM_OF_CELLS_W; x++) {
-				BoolDisplayMap_.at(x).at(y) = (DisplayMap_.at(x).at(y) != Color::Empty && DisplayMap_.at(x).at(y) !=Color::Gray);
+				BoolDisplayMap_.at(x).at(y) = (DisplayMap_.at(x).at(y) != Color::Empty && DisplayMap_.at(x).at(y) != Color::Gray);
 			}
 		}
 
 		// save to buffer replay if the active tetromino was placed
-		if (shouldSave && Settings::Json.at("settings").at("record data")) {
+		if (Settings::Json.at("settings").at("record data") && (shouldSave || State_ == GameState::YouWon)) {
 			SaveToMemoryReplay(BoolDisplayMap_, PreviousBoolDisplayMap_, done, action);
 			PreviousBoolDisplayMap_ = BoolDisplayMap_;
 		}
@@ -284,7 +284,7 @@ bool Game::HasCollied(Tetromino tetromino) {
 	for (auto const& piece : tetromino.blocks) {
 		point blocks = piece + tetromino.pos;
 		// If x and y coords are out of bound 
-		// or if the cell in the map is a highlightColor other than gray AKA it's occupied 
+		// or if the cell in the map is a color other than gray AKA it's occupied 
 		if (
 			(blocks.x) >= NUM_OF_CELLS_W
 			|| (blocks.y) >= NUM_OF_CELLS_H
