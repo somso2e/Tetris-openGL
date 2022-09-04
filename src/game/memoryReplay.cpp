@@ -1,14 +1,15 @@
 #include "game.hpp"
 
 
-void Game::SaveToMemoryReplay(bool_map state, bool_map previousState, uint32_t done) {
-	uint32_t action = ActiveTetromino_.pos.x * ActiveTetromino_.rotation;
+void Game::SaveToMemoryReplay(bool_map state, bool_map previousState, uint32_t done, uint32_t action) {
+	std::cout << action << ",";
 	Buffer_.push_back({
 		previousState,
 		state,
 		done,
 		action,
-		CalculateReward(), }
+		Score_,
+		TotalLinesCleared_, }
 	);
 
 	// Only save to 
@@ -22,23 +23,23 @@ void Game::SaveToMemoryReplay(bool_map state, bool_map previousState, uint32_t d
 	}
 }
 
-Game::reward Game::CalculateReward() {
-	reward reward{};
-	for (int x = 0; x < NUM_OF_CELLS_W; x++) {
-		for (int y = 0; y < NUM_OF_CELLS_H; y++) {
-			if (BoolDisplayMap_.at(x).at(y)) {
-				reward.heights.at(x) = NUM_OF_CELLS_H - 1 - y;
-				int filledCells = 0;
-				for (int y2 = y + 1; y2 < NUM_OF_CELLS_H - 1; y2++) {
-					filledCells += BoolDisplayMap_.at(x).at(y + 1);
-				}
-				reward.bubbles += reward.heights.at(x) - filledCells;
-				break;
-			}
-		}
-	}
-
-	reward.score = Score_;
-	reward.lines = TotalLinesCleared_;
-	return reward;
-}
+//Game::reward Game::CalculateReward() {
+//	reward reward{};
+//	for (int x = 0; x < NUM_OF_CELLS_W; x++) {
+//		for (int y = 0; y < NUM_OF_CELLS_H; y++) {
+//			if (BoolDisplayMap_.at(x).at(y)) {
+//				reward.heights.at(x) = NUM_OF_CELLS_H - 1 - y;
+//				int filledCells = 0;
+//				for (int y2 = y + 1; y2 < NUM_OF_CELLS_H - 1; y2++) {
+//					filledCells += BoolDisplayMap_.at(x).at(y + 1);
+//				}
+//				reward.bubbles += reward.heights.at(x) - filledCells;
+//				break;
+//			}
+//		}
+//	}
+//
+//	reward.score = Score_;
+//	reward.lines = TotalLinesCleared_;
+//	return reward;
+//}

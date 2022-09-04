@@ -149,9 +149,12 @@ void Game::Update() {
 		}
 		bool shouldSave = false;
 		bool done = false;
+		uint32_t action;
 		// If previous tetromino was placed generate a new one
 		if (ActiveTetromino_.placed) {
 			shouldSave = true;
+			action = ActiveTetromino_.rotation * NUM_OF_CELLS_W + ActiveTetromino_.pos.x;
+
 			FallTimer_ = timeNow;
 			CanSwap_ = true;
 			// Permenantly append the active Tetromino to the map
@@ -174,18 +177,6 @@ void Game::Update() {
 				done = true;
 			}
 		}
-		for (auto y = 0; y < NUM_OF_CELLS_H; y++) {
-			for (auto x = 0; x < NUM_OF_CELLS_W; x++) {
-				BoolDisplayMap_.at(x).at(y) = (Map_.at(x).at(y) != Color::Empty);
-			}
-		}
-
-		// save to buffer replay if the active tetromino was placed
-		if (shouldSave && Settings::Json.at("settings").at("record data")) {
-			SaveToMemoryReplay(BoolDisplayMap_, PreviousBoolDisplayMap_, done);
-		}
-
-		PreviousBoolDisplayMap_ = BoolDisplayMap_;
 
 
 		// Append the ghost of the active tetromino to display map
@@ -217,6 +208,17 @@ void Game::Update() {
 		for (const auto& block : TETROMINOES.at(HeldTetrominoType_).blocks) {
 			point pos = block + point(1, 1);
 			HeldPieceMap_.at(pos.x).at(pos.y) = heldColor;
+		}
+		for (auto y = 0; y < NUM_OF_CELLS_H; y++) {
+			for (auto x = 0; x < NUM_OF_CELLS_W; x++) {
+				BoolDisplayMap_.at(x).at(y) = (DisplayMap_.at(x).at(y) != Color::Empty && DisplayMap_.at(x).at(y) !=Color::Gray);
+			}
+		}
+
+		// save to buffer replay if the active tetromino was placed
+		if (shouldSave && Settings::Json.at("settings").at("record data")) {
+			SaveToMemoryReplay(BoolDisplayMap_, PreviousBoolDisplayMap_, done, action);
+			PreviousBoolDisplayMap_ = BoolDisplayMap_;
 		}
 	}
 	else if (State_ == GameState::CountDown) {

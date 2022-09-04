@@ -120,18 +120,12 @@ public:
 	typedef std::array<std::array<bool, NUM_OF_CELLS_H>, NUM_OF_CELLS_W> bool_map;
 	bool_map BoolDisplayMap_, PreviousBoolDisplayMap_;
 
-	struct reward {
-		std::array<uint32_t, NUM_OF_CELLS_W> heights;
-		uint32_t score;
-		uint32_t bubbles;
-		uint32_t bumpiness;
-		uint32_t lines;
-	};
 	struct buffer {
 		bool_map state, nextState;
 		uint32_t done;
 		uint32_t action;
-		reward reward;
+		uint32_t score;
+		uint32_t lines;
 	};
 	std::vector<buffer> Buffer_;
 	static const int MAX_BUFFER_SIZE = 1000;
@@ -202,8 +196,7 @@ public:
 	bool MoveTetromino(Tetromino& tetromino, Movement movement);
 	void SwapTetromino();
 
-	void SaveToMemoryReplay(bool_map state, bool_map previousState, uint32_t done);
-	reward CalculateReward();
+	void SaveToMemoryReplay(bool_map state, bool_map previousState, uint32_t done, uint32_t action);
 
 	void Restart();
 
