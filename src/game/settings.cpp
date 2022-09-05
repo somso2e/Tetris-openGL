@@ -4,6 +4,7 @@
 std::vector<Settings::Module> Settings::Hotkeys;
 std::vector<Settings::Module> Settings::DefaultHotkeys;
 nlohmann::ordered_json Settings::Json;
+nlohmann::ordered_json Settings::DefaultJson;
 
 void Settings::init() {
 	DefaultHotkeys.insert(DefaultHotkeys.end(), {
@@ -21,9 +22,18 @@ void Settings::init() {
 		{"MAIN MENU",GLFW_KEY_M}
 		});
 	Hotkeys = DefaultHotkeys;
-
 	std::filesystem::path path("settings.json");
-	bool validJSON = true;
+
+	DefaultJson["high scores"]["classic"] = json::array();
+	DefaultJson["high scores"]["fourty lines"] = json::array();
+
+	DefaultJson["settings"]["record data"] = true;
+
+	DefaultJson["settings"]["Auto Repeat time"] = 0.033;
+	DefaultJson["settings"]["Delayed Auto Shift"] = 0.167;
+	//DefaultJson["settings"]["DAS Cut Delay"] = 0.033; 
+	DefaultJson["settings"]["Soft Drop Speed"] = 0.033;
+
 
 	if (std::filesystem::exists(path)) {
 		// Read json file from disk
@@ -38,27 +48,26 @@ void Settings::init() {
 			if (j.find(name) != j.end()) {
 				Hotkeys.at(i).Value = j.at(name);
 			}
+			else {
+				Hotkeys.at(i).Value = DefaultHotkeys.at(i).Value;
+			}
 		}
-
+		for (const auto& [key1, val1] : DefaultJson.items()) {
+			for (const auto& [key2, val2] : DefaultJson.at(key1).items()) {
+				if (Json[key1].find(key2) == Json[key1].end()) {
+					Json[key1][key2] = DefaultJson[key1].at(key2);
+				}
+			}
+		}
 	}
 	else {
-		Hotkeys = DefaultHotkeys;
-
-		auto& j = Json["settings"]["hotkeys"];
-		for (const auto& h : Hotkeys) {
-			j[h.Name] = h.Value;
-		}
-		auto& r = Json["high scores"];
-		r["classic"] = json::array();
-		r["fourty lines"] = json::array();
-
-		Json["settings"]["record data"] = true;
-		
-		save();
+		Json = DefaultJson;
 	}
+	save();
 }
 void Settings::save() {
 	std::ofstream file("settings.json");
 	file << Json.dump(1, '\t');
 	file.close();
 }
+

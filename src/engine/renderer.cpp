@@ -74,8 +74,9 @@ void Renderer::Init2D() {
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, &whiteColor);
 
 	Data.TextureSlots[0] = Data.WhiteTextureID;
-}
 
+	glGetIntegerv(GL_MAX_TEXTURE_SIZE, &Data.MAXWIDTH);
+}
 
 void Renderer::Shutdown() {
 	glDeleteVertexArrays(1, &Data.VAO);
@@ -242,7 +243,7 @@ void Renderer::Text::Init(const char* fontFilePath, int height) {
 		rowWidth += g->bitmap.width + 1;
 		rowHeight = std::max(rowHeight, g->bitmap.rows);
 
-		if (rowWidth + g->bitmap.width + 1 >= MAXWIDTH) {
+		if (rowWidth + g->bitmap.width + 1 >= Data.MAXWIDTH) {
 			TextureWidth_ = std::max(TextureWidth_, rowWidth);
 			TextureHeight_ += rowWidth;
 			rowWidth = 0;
@@ -277,7 +278,7 @@ void Renderer::Text::Init(const char* fontFilePath, int height) {
 			//log("Loading character" << i << "failed!")
 			continue;
 		}
-		if (offsetX + g->bitmap.width + 1 >= MAXWIDTH) {
+		if (offsetX + g->bitmap.width + 1 >= Data.MAXWIDTH) {
 			offsetY += rowh;
 			rowh = 0;
 			offsetX = 0;

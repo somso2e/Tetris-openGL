@@ -32,7 +32,7 @@ MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei 
 	log(str);
 	if (severity != GL_DEBUG_SEVERITY_NOTIFICATION) {
 		//#ifdef __MSC_VER_
-				//__debugbreak();
+//				__debugbreak();
 		//#endif	
 	}
 }

@@ -1,5 +1,4 @@
 #include "application.hpp"
-
 Game Application::Tetris;
 GLFWwindow* Application::window;
 
@@ -40,15 +39,23 @@ int Application::Run() {
 	gladLoadGL();
 	glViewport(0, 0, windowWidth, windowHeight);
 
+	
+#ifdef _DEBUG
+	
+	auto glVersion = std::string(reinterpret_cast<const char*>(glGetString(GL_VERSION)));
+	log("OpenGL Version: " + glVersion);
+	auto GPUdetail= std::string(reinterpret_cast<const char*>(glGetString(GL_RENDERER)));
+	log("GPU detail: " + GPUdetail);
+
+	glDebugMessageCallback(MessageCallback, 0);
+#endif // _DEBUG
+
 	glEnable(GL_DEBUG_OUTPUT);
 	glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
 
+	glEnable(GL_MULTISAMPLE);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-#ifdef _DEBUG
-	glDebugMessageCallback(MessageCallback, 0);
-#endif // _DEBUG
 
 
 	Tetris.Init();

@@ -1,0 +1,447 @@
+2022-09-05 02:43:26	GLFW initialized
+2022-09-05 02:43:26	Window created successfully
+2022-09-05 02:43:26	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 02:43:26	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 02:43:27	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Based on the usage hint and actual usage, buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will be configured as STREAM.
+2022-09-05 02:43:27	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 02:43:27	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 02:46:16	GLFW initialized
+2022-09-05 02:46:16	Window created successfully
+2022-09-05 02:46:16	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 02:46:17	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 02:46:17	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Based on the usage hint and actual usage, buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will be configured as STREAM.
+2022-09-05 02:46:17	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 02:46:17	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 02:47:09	GLFW initialized
+2022-09-05 02:47:28	GLFW initialized
+2022-09-05 02:47:29	Window created successfully
+2022-09-05 02:47:29	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 02:47:29	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 02:47:29	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Based on the usage hint and actual usage, buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will be configured as STREAM.
+2022-09-05 02:47:29	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 02:47:29	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 16:56:59	GLFW initialized
+2022-09-05 16:57:00	Window created successfully
+2022-09-05 16:57:00	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 16:57:00	OpenGL Version: NVIDIA Corporation
+2022-09-05 16:57:00	OpenGL Version: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 16:57:00	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 16:57:00	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 16:57:00	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Based on the usage hint and actual usage, buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will be configured as STREAM.
+2022-09-05 16:57:00	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 16:57:00	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 16:57:53	GLFW initialized
+2022-09-05 16:57:53	Window created successfully
+2022-09-05 16:57:53	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 16:57:53	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 16:57:53	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 16:57:53	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 16:57:54	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Based on the usage hint and actual usage, buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will be configured as STREAM.
+2022-09-05 16:57:54	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 16:57:54	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 17:00:21	GLFW initialized
+2022-09-05 17:00:22	Window created successfully
+2022-09-05 17:17:22	GLFW initialized
+2022-09-05 17:17:23	Window created successfully
+2022-09-05 17:17:23	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 17:17:23	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 17:17:23	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 17:17:23	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 17:17:23	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Based on the usage hint and actual usage, buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will be configured as STREAM.
+2022-09-05 17:17:23	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 17:17:23	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:00:09	GLFW initialized
+2022-09-05 21:00:10	Window created successfully
+2022-09-05 21:00:10	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 21:00:10	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 21:00:10	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:00:10	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:00:11	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Based on the usage hint and actual usage, buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will be configured as STREAM.
+2022-09-05 21:00:11	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:00:11	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:01:24	GLFW initialized
+2022-09-05 21:01:25	Window created successfully
+2022-09-05 21:01:25	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 21:01:25	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 21:01:25	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:01:25	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 21:14:16	GLFW initialized
+2022-09-05 21:14:17	Window created successfully
+2022-09-05 21:14:17	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 21:14:17	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 21:14:17	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:14:17	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated.
+2022-09-05 21:15:04	GLFW initialized
+2022-09-05 21:15:04	Window created successfully
+2022-09-05 21:15:04	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 21:15:04	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 21:15:04	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:15:04	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated.
+2022-09-05 21:15:26	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated.
+2022-09-05 21:16:15	GLFW initialized
+2022-09-05 21:16:16	Window created successfully
+2022-09-05 21:16:16	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 21:16:16	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 21:16:16	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:16:16	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated.
+2022-09-05 21:18:06	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_VALUE error generated. Invalid texture format.
+2022-09-05 21:34:15	GLFW initialized
+2022-09-05 21:34:15	Window created successfully
+2022-09-05 21:34:15	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 21:34:15	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 21:34:15	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:34:15	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated.
+2022-09-05 21:35:02	GLFW initialized
+2022-09-05 21:35:03	Window created successfully
+2022-09-05 21:35:03	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 21:35:03	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 21:35:03	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:35:03	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated.
+2022-09-05 21:36:12	GLFW initialized
+2022-09-05 21:36:13	Window created successfully
+2022-09-05 21:36:13	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 21:36:13	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 21:36:13	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:36:13	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_VALUE error generated. Invalid texture format.
+2022-09-05 21:36:23	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_VALUE error generated. Invalid texture format.
+2022-09-05 21:36:28	GLFW initialized
+2022-09-05 21:36:28	Window created successfully
+2022-09-05 21:36:28	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 21:36:28	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 21:36:28	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:36:28	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:36:29	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Based on the usage hint and actual usage, buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will be configured as STREAM.
+2022-09-05 21:36:29	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:36:29	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:42:28	GLFW initialized
+2022-09-05 21:42:28	Window created successfully
+2022-09-05 21:42:28	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 21:42:28	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 21:42:28	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:42:29	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:42:29	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Based on the usage hint and actual usage, buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will be configured as STREAM.
+2022-09-05 21:42:29	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:42:29	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:50:48	GLFW initialized
+2022-09-05 21:50:49	Window created successfully
+2022-09-05 21:50:49	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 21:50:49	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 21:50:49	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:50:49	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:50:49	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Based on the usage hint and actual usage, buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will be configured as STREAM.
+2022-09-05 21:50:49	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:50:49	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:52:00	GLFW initialized
+2022-09-05 21:52:00	Window created successfully
+2022-09-05 21:52:00	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 21:52:00	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 21:52:00	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:52:00	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:52:01	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Based on the usage hint and actual usage, buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will be configured as STREAM.
+2022-09-05 21:52:01	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:52:01	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 21:57:53	GLFW initialized
+2022-09-05 21:57:53	Window created successfully
+2022-09-05 21:57:53	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 21:57:53	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 21:57:53	[ERROR](Shader)Failed to compile fragment 0(17) : error C1115: unable to find compatible overloaded function "texture(sampler2DArray, vec2)"
+0(19) : error C1115: unable to find compatible overloaded function "texture(sampler2DArray, vec2)"
+0(19) : error C1115: unable to find compatible overloaded function "texture(sampler2DArray, vec2)"
+
+2022-09-05 21:57:53	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_VALUE error generated. One or more handles do not refer to an object generated by OpenGL.
+2022-09-05 21:59:00	GLFW initialized
+2022-09-05 21:59:01	Window created successfully
+2022-09-05 21:59:01	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 21:59:01	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 21:59:01	[ERROR](Shader)Failed to compile fragment 0(17) : error C1115: unable to find compatible overloaded function "texture(sampler2DArray, vec2, int)"
+0(19) : error C1115: unable to find compatible overloaded function "texture(sampler2DArray, vec2, int)"
+0(19) : error C1115: unable to find compatible overloaded function "texture(sampler2DArray, vec2, int)"
+
+2022-09-05 21:59:01	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_VALUE error generated. One or more handles do not refer to an object generated by OpenGL.
+2022-09-05 21:59:48	GLFW initialized
+2022-09-05 21:59:48	Window created successfully
+2022-09-05 21:59:48	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 21:59:48	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 21:59:48	[ERROR](Shader)Failed to compile fragment 0(17) : error C1115: unable to find compatible overloaded function "texture(sampler2DArray, vec2, float)"
+0(20) : error C1115: unable to find compatible overloaded function "texture(sampler2DArray, vec2, float)"
+0(20) : error C1115: unable to find compatible overloaded function "texture(sampler2DArray, vec2, float)"
+
+2022-09-05 21:59:48	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_VALUE error generated. One or more handles do not refer to an object generated by OpenGL.
+2022-09-05 22:00:35	GLFW initialized
+2022-09-05 22:00:36	Window created successfully
+2022-09-05 22:00:36	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 22:00:36	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 22:00:36	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:00:36	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:00:36	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Based on the usage hint and actual usage, buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will be configured as STREAM.
+2022-09-05 22:00:36	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:00:36	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:02:25	GLFW initialized
+2022-09-05 22:02:25	Window created successfully
+2022-09-05 22:02:25	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 22:02:25	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 22:02:25	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:02:25	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:02:26	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Based on the usage hint and actual usage, buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will be configured as STREAM.
+2022-09-05 22:02:26	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:02:26	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:03:26	GLFW initialized
+2022-09-05 22:03:26	Window created successfully
+2022-09-05 22:03:26	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 22:03:26	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 22:03:26	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:03:26	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_ENUM error generated. <target> enum is invalid.
+2022-09-05 22:03:55	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_VALUE error generated. Invalid texture format.
+2022-09-05 22:04:51	GLFW initialized
+2022-09-05 22:04:52	Window created successfully
+2022-09-05 22:04:52	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 22:04:52	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 22:04:52	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:04:52	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_VALUE error generated. Invalid texture format.
+2022-09-05 22:06:22	GLFW initialized
+2022-09-05 22:06:22	Window created successfully
+2022-09-05 22:06:22	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 22:06:22	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 22:06:22	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:06:22	GL CALLBACK: [ERROR] Source:API Severity:HIGH Message:GL_INVALID_VALUE error generated. Invalid texture format.
+2022-09-05 22:06:48	GLFW initialized
+2022-09-05 22:06:48	Window created successfully
+2022-09-05 22:06:48	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 22:06:48	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 22:06:48	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:06:48	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:06:49	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Based on the usage hint and actual usage, buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will be configured as STREAM.
+2022-09-05 22:06:49	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:06:49	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:07:21	GLFW initialized
+2022-09-05 22:07:21	Window created successfully
+2022-09-05 22:07:21	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 22:07:21	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 22:07:21	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:07:22	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:07:22	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Based on the usage hint and actual usage, buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will be configured as STREAM.
+2022-09-05 22:07:22	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:07:22	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:14:36	GLFW initialized
+2022-09-05 22:14:37	Window created successfully
+2022-09-05 22:14:37	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 22:14:37	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 22:14:37	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:14:37	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:14:37	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Based on the usage hint and actual usage, buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will be configured as STREAM.
+2022-09-05 22:14:37	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 22:14:37	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 23:27:58	GLFW initialized
+2022-09-05 23:27:58	Window created successfully
+2022-09-05 23:27:58	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 23:27:58	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 23:27:59	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 23:57:03	GLFW initialized
+2022-09-05 23:57:03	Window created successfully
+2022-09-05 23:57:03	OpenGL Version: 4.6.0 NVIDIA 516.94
+2022-09-05 23:57:03	GPU detail: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+2022-09-05 23:57:03	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 2 (bound to GL_ELEMENT_ARRAY_BUFFER_ARB, usage hint is GL_STATIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 23:57:04	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 23:57:04	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Based on the usage hint and actual usage, buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will be configured as STREAM.
+2022-09-05 23:57:04	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.
+2022-09-05 23:57:04	GL CALLBACK: [OTHER] Source:API Severity:NOTIFICATION Message:Buffer detailed info: Buffer object 1 (bound to GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (0), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (1), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (2), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (3), GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB (4), and GL_ARRAY_BUFFER_ARB, usage hint is GL_DYNAMIC_DRAW) will use VIDEO memory as the source for buffer object operations.

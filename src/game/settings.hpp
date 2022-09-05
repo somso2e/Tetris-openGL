@@ -14,5 +14,6 @@ namespace Settings {
 	extern std::vector<Module> Hotkeys;
 	extern std::vector<Module> DefaultHotkeys;
 	extern ordered_json Json;
+	extern ordered_json DefaultJson;
 	const int NUM_OF_TOP_SCORES = 10;
 };

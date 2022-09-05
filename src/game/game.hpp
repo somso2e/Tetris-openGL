@@ -169,7 +169,7 @@ public:
 	std::array<double, 350> KeysRepeatTimer_{};
 public:
 	bool IsKeyPressed(int key);
-	bool IsKeyHeld(int key);
+	bool IsKeyHeld(int key, double repeatInterval = 0.033, double repeatDelay = 0.150);
 	void ProcessInput();
 	std::string GetTime(double elapsedTime);
 

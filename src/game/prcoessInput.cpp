@@ -2,8 +2,6 @@
 
 
 bool Game::IsKeyPressed(int key) {
-	static const double REPEAT_INTERVAL = 0.05;
-	static const double REPEAT_DELAY = 0.15;
 	const auto timeNow = glfwGetTime();
 
 	if (Keys_[key] == GLFW_PRESS && !KeysProcessed_[key]) {
@@ -14,18 +12,17 @@ bool Game::IsKeyPressed(int key) {
 }
 
 
-bool Game::IsKeyHeld(int key) {
-	static const double REPEAT_INTERVAL = 0.05;
-	static const double REPEAT_DELAY = 0.15;
+bool Game::IsKeyHeld(int key, double repeatInterval, double repeatDelay) {
+
 	const auto timeNow = glfwGetTime();
 
 	if (Keys_[key] == GLFW_PRESS && !KeysProcessed_[key]) {
 		KeysProcessed_[key] = true;
-		KeysRepeatTimer_[key] = timeNow + REPEAT_DELAY;
+		KeysRepeatTimer_[key] = timeNow + repeatDelay;
 		return true;
 	}
 	else if (Keys_[key] != GLFW_RELEASE) {
-		if (KeysProcessed_[key] && timeNow >= KeysRepeatTimer_[key] + REPEAT_INTERVAL) {
+		if (KeysProcessed_[key] && timeNow >= KeysRepeatTimer_[key] + repeatInterval) {
 			KeysRepeatTimer_[key] = timeNow;
 			return true;
 		}
@@ -171,7 +168,9 @@ const char* Game::GetKeyName(int key) {
 
 void Game::ProcessInput() {
 	auto& hotkeys = Settings::Json.at("settings").at("hotkeys");
-
+	auto& ARR = Settings::Json.at("settings").at("Auto Repeat time");
+	auto& DAS = Settings::Json.at("settings").at("Delayed Auto Shift");
+	auto& SDS = Settings::Json.at("settings").at("Soft Drop Speed");
 
 	switch (State_) {
 	case GameState::MainMenu:
@@ -248,13 +247,13 @@ void Game::ProcessInput() {
 		}
 		break;
 	case GameState::Active:
-		if (IsKeyHeld(hotkeys.at("SOFT DROP"))) {
+		if (IsKeyHeld(hotkeys.at("SOFT DROP"), SDS, 0)) {
 			if (MoveTetromino(ActiveTetromino_, Movement::Down)) { Score_ += 1; }
 		}
-		else if (IsKeyHeld(hotkeys.at("MOVE RIGHT"))) {
+		else if (IsKeyHeld(hotkeys.at("MOVE RIGHT"), ARR, DAS)) {
 			MoveTetromino(ActiveTetromino_, Movement::Right);
 		}
-		else if (IsKeyHeld(hotkeys.at("MOVE LEFT"))) {
+		else if (IsKeyHeld(hotkeys.at("MOVE LEFT"), ARR, DAS)) {
 			MoveTetromino(ActiveTetromino_, Movement::Left);
 		}
 

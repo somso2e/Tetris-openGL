@@ -1,8 +1,6 @@
 #include "game.hpp"
 
 void Game::Init() {
-	SmallText_.Init("res/fonts/SourceCodePro-Regular.ttf", 128);
-	BigText_.Init("res/fonts/SourceCodePro-Regular.ttf", 256);
 	Renderer::Init2D();
 
 	EmptyCellTextureID_ = Renderer::LoadTexture("res/textures/EmptyCell.png");
@@ -10,6 +8,9 @@ void Game::Init() {
 	PauseButtonTextureID_ = Renderer::LoadTexture("res/textures/PauseButton.png");
 	ArrowUpTextureID_ = Renderer::LoadTexture("res/textures/ArrowUp.png");
 	ArrowDownTextureID_ = Renderer::LoadTexture("res/textures/ArrowDown.png");
+	
+	SmallText_.Init("res/fonts/SourceCodePro-Regular.ttf", 128);
+	BigText_.Init("res/fonts/SourceCodePro-Regular.ttf", 400);
 	Settings::init();
 
 	InitMembers();

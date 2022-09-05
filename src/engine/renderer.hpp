@@ -53,6 +53,8 @@ namespace Renderer {
 
 		std::array<uint32_t, MAX_TEXTURE_COUNT> TextureSlots{ 0 };
 		uint32_t TextureSlotIndex = 1;
+
+		GLint MAXWIDTH;
 	};
 	extern RendererData Data;
 
@@ -77,7 +79,6 @@ namespace Renderer {
 			HorizontalAlignment horizontalAlignment = HorizontalAlignment::Left,
 			VerticalAlignment verticalAlignment = VerticalAlignment::Top);
 	private:
-		static const int MAXWIDTH = GL_MAX_TEXTURE_SIZE;
 		float TextureIndex_;
 
 		unsigned int TextureWidth_ = 0;
