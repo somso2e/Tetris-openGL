@@ -197,6 +197,8 @@ public:
 	void SwapTetromino();
 
 	void SaveToMemoryReplay(bool_map state, bool_map previousState, uint32_t done, uint32_t action);
+	void FlushMemoryBuffer();
+
 
 	void Restart();
 

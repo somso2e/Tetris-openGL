@@ -8,7 +8,7 @@ void Game::Init() {
 	PauseButtonTextureID_ = Renderer::LoadTexture("res/textures/PauseButton.png");
 	ArrowUpTextureID_ = Renderer::LoadTexture("res/textures/ArrowUp.png");
 	ArrowDownTextureID_ = Renderer::LoadTexture("res/textures/ArrowDown.png");
-	
+
 	SmallText_.Init("res/fonts/SourceCodePro-Regular.ttf", 128);
 	BigText_.Init("res/fonts/SourceCodePro-Regular.ttf", 400);
 	Settings::init();
@@ -142,6 +142,7 @@ void Game::Update() {
 			if (TotalLinesCleared_ >= 40) {
 				State_ = GameState::YouWon;
 				UpdateHighScore();
+				FlushMemoryBuffer();
 			}
 			// Game over if reached 100 minutes
 			if (ElapsedTime_ >= 5999.0) {
@@ -217,7 +218,7 @@ void Game::Update() {
 		}
 
 		// save to buffer replay if the active tetromino was placed
-		if (Settings::Json.at("settings").at("record data") && (shouldSave || State_ == GameState::YouWon)) {
+		if (Settings::Json.at("settings").at("record data") && shouldSave) {
 			SaveToMemoryReplay(BoolDisplayMap_, PreviousBoolDisplayMap_, done, action);
 			PreviousBoolDisplayMap_ = BoolDisplayMap_;
 		}
