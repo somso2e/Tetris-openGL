@@ -68,6 +68,10 @@ target_link_libraries(tetris
     ${ZLIB_LIBRARIES}
 )
 
+add_custom_command(TARGET tetris POST_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy_directory
+                       ${CMAKE_SOURCE_DIR}/res/ $<TARGET_FILE_DIR:tetris>/res/)
+
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
