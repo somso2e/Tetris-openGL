@@ -7,5 +7,6 @@ Tetris.vcxproj.user
 /icon1.ico
 /build
 /.vscode
-/.vs 
+/.vs
 /dependencies
+/dependencies.txt
