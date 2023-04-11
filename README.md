@@ -36,7 +36,9 @@ wget https://raw.githubusercontent.com/nlohmann/json/develop/single_include/nloh
 4. Build using CMake
 
 ```sh
-
+mkdir build && cd build
+cmake ..     
+make
 ```
 
 ## Windows
