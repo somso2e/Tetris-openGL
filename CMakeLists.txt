@@ -26,16 +26,18 @@ add_definitions(-w)
 add_executable(
     tetris 
     src/game/main.cpp
+    
     src/engine/error.cpp 
     src/engine/renderer.cpp
     src/engine/shader.cpp 
+    src/engine/stb.cpp
+
     src/game/application.cpp 
     src/game/game.cpp 
     src/game/gameRender.cpp 
     src/game/memoryReplay.cpp 
     src/game/processInput.cpp 
     src/game/settings.cpp
-    dependencies/stb.cpp
     
     dependencies/glad/src/glad.c
    ${ZLIB_TEST_SOURCES}
