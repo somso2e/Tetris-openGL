@@ -62,6 +62,10 @@ void Settings::init() {
 	}
 	else {
 		Json = DefaultJson;
+		auto &j = Json["settings"]["hotkeys"];
+        for (const auto &[key, val] : DefaultHotkeys) {
+            j[key] = val;
+        }
 	}
 	save();
 }
