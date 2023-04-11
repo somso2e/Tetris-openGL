@@ -3,7 +3,7 @@ Tetris written in C++ using OpenGL
 
 # How to build 
 ## Linux
-1. Install GLFW and GLM
+1. Install GLFW and GLM (Debian-based distros)
 ```sh
 sudo apt install libglfw3-dev
 sudo apt install libglm-dev 
@@ -17,10 +17,16 @@ mkdir build && cd build
 cmake ..     
 make         
 make install 
-
 ```
+3. Download glad
 
-3. Clone repo and two other dependencies
+    1. Go to https://glad.dav1d.de/
+    2. Only change gl version to version 4.0 (Dont change anything else) and hit Generate
+    3. Download the `glad.zip` file
+    4. Extract the files in to /dependencies/glad
+
+
+4. Clone this repo and two other dependencies
 ```sh
 git clone https://github.com/somso2e/Tetris-openGL.git
 cd Tetris-openGL
@@ -33,7 +39,9 @@ wget https://raw.githubusercontent.com/nlohmann/json/develop/single_include/nloh
 
 ```
 
-4. Build using CMake
+
+
+5. Build using CMake
 
 ```sh
 mkdir build && cd build
