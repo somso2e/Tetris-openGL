@@ -25,7 +25,8 @@ unsigned int Shader::CompileSourceFile(unsigned int type, const char* source) {
 	if (result == GL_FALSE) {
 		int length;
 		glGetShaderiv(ID, GL_INFO_LOG_LENGTH, &length);
-		char* message = (char*)_malloca(length * sizeof(char));
+		// char* message = (char*)_malloca(length * sizeof(char));
+		char message[length];
 		glGetShaderInfoLog(ID, length, &length, message);
 		log("[ERROR](Shader)Failed to compile " + std::string(type == GL_VERTEX_SHADER ? "vertex " : "fragment ") + message);
 		glDeleteShader(ID);

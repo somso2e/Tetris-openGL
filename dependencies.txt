@@ -1,0 +1,16 @@
+sudo apt install libglfw3-dev
+sudo apt install libglm-dev 
+
+git clone https://git.savannah.nongnu.org/git/freetype/freetype2.git
+cd freetype2
+mkdir build && cd build
+cmake ..      # generates Makefile + deactivates HarfBuzz if not found
+make          # compile libs
+make install  # install libs & headers
+
+
+mkdir dependencies/stb/
+wget https://raw.githubusercontent.com/nothings/stb/master/stb_image.h -P ./dependencies/stb
+
+mkdir dependencies/nlohmann
+wget https://raw.githubusercontent.com/nlohmann/json/develop/single_include/nlohmann/json.hpp -P ./dependencies/nlohmann

@@ -1,20 +1,12 @@
-﻿#include <windows.h>
-#include "application.hpp"
+﻿#include "application.hpp"
 
-#ifdef _DEBUG
-#define MAIN main()
-#else 
-#define MAIN WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow )
-#endif
+#define _DEBUG
+int main() {
+    int init = Application::Run();
+    if (init) {
+        return -1;
+    }
 
-int MAIN{
-	int init = Application::Run();
-	if (init) {
-		return -1;
-	}
-
-	Application::Shutdown();
-	return 0;
+    Application::Shutdown();
+    return 0;
 }
-
-
