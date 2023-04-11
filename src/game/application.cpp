@@ -1,107 +1,112 @@
 #include "application.hpp"
 Game Application::Tetris;
-GLFWwindow* Application::window;
-
+GLFWwindow *Application::window;
 
 int Application::Run() {
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-#ifdef _DEBUG
-	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
-#endif // _DEBUG
-
-	if (!glfwInit()) {
-		log("GLFW initialization failed");
-		return -1;
-	}
-	else {
-		log("GLFW initialized");
-	}
-
-	window = glfwCreateWindow(windowWidth, windowHeight, "Tetris", NULL, NULL);
-
-	SetIcon("res/textures/icon2.png");
-
-	glfwSetWindowAspectRatio(window, 16, 9);
-	glfwSetWindowSizeLimits(window, 1280, 720, GLFW_DONT_CARE, GLFW_DONT_CARE);
-
-	if (!window) {
-		glfwTerminate();
-		log("Window context creation failed");
-		return -1;
-	}
-	else {
-		log("Window created successfully");
-	}
-
-	glfwMakeContextCurrent(window);
-	gladLoadGL();
-	glViewport(0, 0, windowWidth, windowHeight);
-
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	
 #ifdef _DEBUG
-	
-	auto glVersion = std::string(reinterpret_cast<const char*>(glGetString(GL_VERSION)));
-	log("OpenGL Version: " + glVersion);
-	auto GPUdetail= std::string(reinterpret_cast<const char*>(glGetString(GL_RENDERER)));
-	log("GPU detail: " + GPUdetail);
-
-	glDebugMessageCallback(MessageCallback, 0);
+    glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 #endif // _DEBUG
 
-	glEnable(GL_DEBUG_OUTPUT);
-	glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+    if (!glfwInit()) {
+        log("GLFW initialization failed");
+        return -1;
+    } else {
+        log("GLFW initialized");
+    }
 
-	glEnable(GL_MULTISAMPLE);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    window = glfwCreateWindow(windowWidth, windowHeight, "Tetris", NULL, NULL);
 
+    SetIcon("res/textures/icon2.png");
 
-	Tetris.Init();
+    glfwSetWindowAspectRatio(window, 16, 9);
+    glfwSetWindowSizeLimits(window, 1280, 720, GLFW_DONT_CARE, GLFW_DONT_CARE);
 
-	glfwSetKeyCallback(window, key_callback);
-	glfwSetWindowSizeCallback(window, window_size_callback);
-	glfwSwapInterval(1);
-	while (!glfwWindowShouldClose(window)) {
-		Tetris.Update();
+    if (!window) {
+        glfwTerminate();
+        log("Window context creation failed");
+        return -1;
+    } else {
+        log("Window created successfully");
+    }
 
-		glfwSwapBuffers(window);
-		glfwPollEvents();
+    glfwMakeContextCurrent(window);
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+        log("Failed to initialize GLAD");
+        return -1;
+    }else{
+		log("GLAD loaded successfully");
 	}
+    glViewport(0, 0, windowWidth, windowHeight);
+
+#ifdef _DEBUG
+ 
+    auto glVersion =
+        std::string(reinterpret_cast<const char *>(glGetString(GL_VERSION)));
+    log("OpenGL Version: " + glVersion);
+    auto GPUdetail =
+        std::string(reinterpret_cast<const char *>(glGetString(GL_RENDERER)));
+    log("GPU detail: " + GPUdetail);
+
+    glDebugMessageCallback(MessageCallback, 0);
+#endif // _DEBUG
+
+    glEnable(GL_DEBUG_OUTPUT);
+    glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+
+    glEnable(GL_MULTISAMPLE);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+    Tetris.Init();
+
+    glfwSetKeyCallback(window, key_callback);
+    glfwSetWindowSizeCallback(window, window_size_callback);
+    glfwSwapInterval(1);
+    while (!glfwWindowShouldClose(window)) {
+        Tetris.Update();
+
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
 }
 
 void Application::Shutdown() {
-	Renderer::Shutdown();
-	glfwDestroyWindow(window);
-	glfwTerminate();
+    Renderer::Shutdown();
+    glfwDestroyWindow(window);
+    glfwTerminate();
 }
 
-void Application::SetIcon(const char* iconFilePath) {
-	GLFWimage iconImage[1];
+void Application::SetIcon(const char *iconFilePath) {
+    GLFWimage iconImage[1];
 
-	iconImage[0].pixels = stbi_load(iconFilePath, &iconImage->width, &iconImage->height, 0, 4);
-	if (!iconImage[0].pixels) {
-		log("[ERROR](Texture) Icon file " + std::string(iconFilePath) + " could not be loaded.");
-	}
-	glfwSetWindowIcon(window, 1, iconImage);
-	stbi_image_free(iconImage[0].pixels);
-
+    iconImage[0].pixels =
+        stbi_load(iconFilePath, &iconImage->width, &iconImage->height, 0, 4);
+    if (!iconImage[0].pixels) {
+        log("[ERROR](Texture) Icon file " + std::string(iconFilePath) +
+            " could not be loaded.");
+    }
+    glfwSetWindowIcon(window, 1, iconImage);
+    stbi_image_free(iconImage[0].pixels);
 }
 
-void Application::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+void Application::key_callback(GLFWwindow *window, int key, int scancode,
+                               int action, int mods) {
 
-	if (0 < key && key < 350) {
-		if (key == GLFW_KEY_F12 && action == GLFW_PRESS)
-			glfwSetWindowShouldClose(window, true);
-		Tetris.Keys_[key] = action;
-		if (action == GLFW_RELEASE) {
-			Tetris.KeysProcessed_[key] = false;
-		}
-	}
+    if (0 < key && key < 350) {
+        if (key == GLFW_KEY_F12 && action == GLFW_PRESS)
+            glfwSetWindowShouldClose(window, true);
+        Tetris.Keys_[key] = action;
+        if (action == GLFW_RELEASE) {
+            Tetris.KeysProcessed_[key] = false;
+        }
+    }
 }
 
-
-void Application::window_size_callback(GLFWwindow* window, int width, int height) {
-	glViewport(0, 0, width, height);
+void Application::window_size_callback(GLFWwindow *window, int width,
+                                       int height) {
+    glViewport(0, 0, width, height);
 }

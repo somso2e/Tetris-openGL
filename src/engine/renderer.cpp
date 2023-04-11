@@ -46,7 +46,7 @@ void Renderer::Init2D() {
 	// Set Indices 
 	uint32_t indices[MAX_INDEX_COUNT]{ 0 };
 	uint32_t offset = 0;
-	for (int i = 0; i < MAX_INDEX_COUNT; i += 6) {
+	for (uint32_t i = 0; i < MAX_INDEX_COUNT; i += 6) {
 		indices[i + 0] = 0 + offset;
 		indices[i + 1] = 1 + offset;
 		indices[i + 2] = 2 + offset;
@@ -121,7 +121,7 @@ void Renderer::DrawQuad(const glm::vec2& position, const glm::vec2 size, const g
 	}
 	float textureIndex = 0.0f;
 	if (textureID != Data.WhiteTextureID) {
-		for (auto i = 0; i < Data.TextureSlotIndex; i++) {
+		for (uint32_t i = 0; i < Data.TextureSlotIndex; i++) {
 			if (Data.TextureSlots[i] == textureID) {
 				textureIndex = (float)i;
 				break;
@@ -227,7 +227,7 @@ void Renderer::Text::Init(const char* fontFilePath, int height) {
 	FT_Set_Pixel_Sizes(face, 0, height);
 	FT_GlyphSlot g = face->glyph;
 
-	unsigned int roww = 0;
+	// unsigned int roww = 0;
 	unsigned int rowh = 0;
 
 	unsigned int rowWidth = 0;
@@ -296,7 +296,6 @@ void Renderer::Text::Init(const char* fontFilePath, int height) {
 		Characters_[i].textureOffset.x = offsetX / (float)TextureWidth_;
 		Characters_[i].textureOffset.y = offsetY / (float)TextureHeight_;
 
-		const auto& x = Characters_[i];
 		rowh = std::max(rowh, g->bitmap.rows);
 		offsetX += g->bitmap.width + 1;
 
@@ -333,7 +332,7 @@ void Renderer::Text::Write(
 			linesLength.push_back(0.0f);
 			continue;
 		}
-		auto& c = Characters_[i];
+		auto& c = Characters_[(int)i];
 		maxTop = std::max(maxTop, c.bitmapT);
 		maxH = std::max(maxH, c.bitmapH);
 		linesLength.at(linesLength.size() - 1) += c.advance.x * size.x;

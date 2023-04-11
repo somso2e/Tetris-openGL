@@ -2,7 +2,7 @@
 
 #include <stb/stb_image.h>
 #include "shader.hpp"
-#include "ft2build.h"
+#include <freetype2/ft2build.h>
 #include FT_FREETYPE_H  
 
 

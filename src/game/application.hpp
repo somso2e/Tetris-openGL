@@ -1,6 +1,6 @@
 #pragma once
 #include "engine/error.hpp"
-#include "game.hpp"
+#include "game/game.hpp"
 #include <chrono>
 #include <thread>
 namespace Application {

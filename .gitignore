@@ -3,7 +3,9 @@ settings.json
 Tetris.vcxproj.filters
 Tetris.vcxproj.user
 /memory_replay.somso
-/log_2022_09_03.txt
-/log_2022_08_29.txt
-/log_2022_08_27.txt
+/log_*
 /icon1.ico
+/build
+/.vscode
+/.vs 
+/dependencies
